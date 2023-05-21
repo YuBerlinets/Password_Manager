@@ -35,7 +35,7 @@ private:
     void saveToFile(const std::string& category,const std::string& website,const std::string& login,
                     const std::string &pass);
 
-    unsigned int simpleHash(const std::string &pass);
+    unsigned int mainPasswordHash(const std::string &pass);
 
     bool validatePassword(const std::string &password, const std::string &storedHash);
 

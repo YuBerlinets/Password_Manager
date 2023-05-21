@@ -4,5 +4,8 @@
 #include "Menu.h"
 
 auto main() -> int {
-    new Menu;
+//    new Menu;
+    std::string path = "passwords.txt";
+    Manager manager(path);
+    auto data = manager.loadDataFromFile();
 }

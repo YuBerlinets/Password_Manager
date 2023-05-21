@@ -1,10 +1,10 @@
 #include "Menu.h"
 
-unsigned int Menu::simpleHash(const std::string &password) {
+unsigned int Menu::mainPasswordHash(const std::string &password) {
 
-    std::string saltedPassword = password;
+    std::string defaultPassword = password;
     unsigned int hash = 0;
-    for (char c: saltedPassword) {
+    for (char c: defaultPassword) {
         hash += static_cast<unsigned int>(c);
         hash += (hash << 10);
         hash ^= (hash >> 6);
@@ -37,7 +37,6 @@ void Menu::saveNewPassword() {
         std::cout << "Password -> " + pass << std::endl;
     } else {
         std::cout << "Enter the password: ";
-//    std::cin >> pass;
         char ch;
         while ((ch = _getch()) != '\r') {
             if (ch == '\b') {
@@ -120,7 +119,7 @@ void Menu::changingMainPassword() {
     std::cout << "Enter your new password: ";
     std::cin >> pass;
     auto file = std::fstream("test.txt");
-    int hashedPass = simpleHash(pass);
+    int hashedPass = mainPasswordHash(pass);
     file << hashedPass;
     std::cout << "Your new password has been successfully stored" << std::endl;
 }
@@ -168,7 +167,7 @@ void Menu::login() {
 
 
 bool Menu::validatePassword(const std::string &password, const std::string &storedHash) {
-    unsigned int hashedPassword = simpleHash(password);
+    unsigned int hashedPassword = mainPasswordHash(password);
     std::string hashString = std::to_string(hashedPassword);
 
     return (hashString == storedHash);

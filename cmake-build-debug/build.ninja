@@ -61,6 +61,12 @@ build CMakeFiles/CPP_PROJECT.dir/Menu.cpp.obj: CXX_COMPILER__CPP_PROJECT_Debug C
   OBJECT_DIR = CMakeFiles\CPP_PROJECT.dir
   OBJECT_FILE_DIR = CMakeFiles\CPP_PROJECT.dir
 
+build CMakeFiles/CPP_PROJECT.dir/Manager.cpp.obj: CXX_COMPILER__CPP_PROJECT_Debug C$:/Users/ASUS/Desktop/c++/CPP_PROJECT/Manager.cpp || cmake_object_order_depends_target_CPP_PROJECT
+  DEP_FILE = CMakeFiles\CPP_PROJECT.dir\Manager.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always -std=gnu++20
+  OBJECT_DIR = CMakeFiles\CPP_PROJECT.dir
+  OBJECT_FILE_DIR = CMakeFiles\CPP_PROJECT.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target CPP_PROJECT
@@ -69,7 +75,7 @@ build CMakeFiles/CPP_PROJECT.dir/Menu.cpp.obj: CXX_COMPILER__CPP_PROJECT_Debug C
 #############################################
 # Link the executable CPP_PROJECT.exe
 
-build CPP_PROJECT.exe: CXX_EXECUTABLE_LINKER__CPP_PROJECT_Debug CMakeFiles/CPP_PROJECT.dir/main.cpp.obj CMakeFiles/CPP_PROJECT.dir/Menu.cpp.obj
+build CPP_PROJECT.exe: CXX_EXECUTABLE_LINKER__CPP_PROJECT_Debug CMakeFiles/CPP_PROJECT.dir/main.cpp.obj CMakeFiles/CPP_PROJECT.dir/Menu.cpp.obj CMakeFiles/CPP_PROJECT.dir/Manager.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\CPP_PROJECT.dir
