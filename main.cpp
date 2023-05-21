@@ -5,5 +5,4 @@
 
 auto main() -> int {
     new Menu;
-
 }
