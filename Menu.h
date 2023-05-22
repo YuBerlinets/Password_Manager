@@ -32,6 +32,7 @@ public:
         std::cout<< "Enter the filename of path to the file: ";
         std::cin >> path;
         Manager manager(path);
+        manager.loadDataFromFile();
         printMenuOptions();
         int input;
         menuItems[0] = [this] { exit(); };

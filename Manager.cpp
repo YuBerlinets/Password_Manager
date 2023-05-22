@@ -36,15 +36,15 @@ void Manager::loadDataFromFile() {
         }
     }
     //printing data only for tests
-    for (const auto &keys: data) {
-        std::cout << "Key: " << keys.first << std::endl;
-        std::cout << "Values: ";
-        const std::vector<std::string> &values = keys.second;
-        for (const std::string &value: values) {
-            std::cout << value << " ";
-        }
-        std::cout << std::endl;
-    }
+//    for (const auto &keys: data) {
+//        std::cout << "Key: " << keys.first << std::endl;
+//        std::cout << "Values: ";
+//        const std::vector<std::string> &values = keys.second;
+//        for (const std::string &value: values) {
+//            std::cout << value << " ";
+//        }
+//        std::cout << std::endl;
+//    }
 }
 
 void Manager::searchPassword() {
@@ -52,9 +52,12 @@ void Manager::searchPassword() {
     std::cout << "Enter category: ";
     std::string category;
     std::cin >> category;
+    std::cout << "Enter the website: ";
+    std::string website;
+    std::cin >> website;
     std::vector<std::string> info = data.at(category);
-    for (auto &value: info)
-        std::cout << value + " ";
+    std::cout << "Login and password for the " + website << std::endl;
+    std::cout << info[1] + " " + info[2] << std::endl;
 }
 
 
