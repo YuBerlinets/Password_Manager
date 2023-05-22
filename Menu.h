@@ -20,38 +20,29 @@ private:
     void login();
 
     static void printMenuOptions();
-
-    void updatePassword();
-
-    void saveNewPassword();
-
-    void searchPassword();
-
-    void exit();
-
     void changingMainPassword();
-
-    static std::string generatingPassword();
-    void saveToFile(const std::string& category,const std::string& website,const std::string& login,
-                    const std::string &pass);
-
-    unsigned int mainPasswordHash(const std::string &pass);
-
-    bool validatePassword(const std::string &password, const std::string &storedHash);
-
+    unsigned int mainPasswordHash(const std::string &password);
+    bool validateMainPassword(const std::string &password, const std::string &storedHash);
+    void exit();
 public:
     Menu() {
-        int input;
-        menuItems[0] = [this] { exit(); };
-        menuItems[1] = [this] { saveNewPassword(); };
-        menuItems[2] = [this] { updatePassword(); };
-        menuItems[3] = [this] { searchPassword(); };
-        menuItems[4] = [this] { changingMainPassword(); };
         printConsoleIntro();
         login();
+        std::string path;
+        std::cout<< "Enter the filename of path to the file: ";
+        std::cin >> path;
+        Manager manager(path);
+        printMenuOptions();
+        int input;
+        menuItems[0] = [this] { exit(); };
+        menuItems[1] = [&manager] { manager.saveNewPassword(); };
+        menuItems[2] = [&manager] { manager.updatePassword(); };
+        menuItems[3] = [&manager] { manager.searchPassword(); };
+        menuItems[4] = [this] { changingMainPassword(); };
+        menuItems[5] = [&manager] {manager.loadDataFromFile();};
         while (isRunning) {
             std::cin >> input;
-            if (input < 5 && input > -1) {
+            if (input < 6 && input > -1) {
                 auto f = menuItems[input];
                 f();
                 std::cout << std::endl;
