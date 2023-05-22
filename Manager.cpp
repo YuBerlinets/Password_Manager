@@ -89,7 +89,7 @@ std::string Manager::generatingPassword() {
     }
     std::random_shuffle(sample.begin(), sample.end());
 
-    //TODO fix generating random password
+    srand((unsigned) time(NULL));
     for (int i = 0; i < length; ++i) {
         int randomChar = rand() % sample.length();
         result.push_back(sample.at(randomChar));
