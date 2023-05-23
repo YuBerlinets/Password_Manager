@@ -31,12 +31,6 @@ void Manager::loadDataFromFile() {
             data[categoryName][website].push_back(password);
         }
     }
-    //test
-//    std::string category = "socialMedia";
-//    std::string website = "insta";
-//
-//    std::string output = "Login - " + data[category][website][0] + "\nPassword - " + data[category][website][1];
-//    std::cout << output << std::endl;
 }
 
 void Manager::searchPassword() {
@@ -100,6 +94,7 @@ void Manager::updatePassword() {
 }
 
 void Manager::deletePassword() {
+    //TODO write deletePassword method
     std::cout << "Enter the name of the website for deleting password: ";
     std::string websiteDelete;
     std::cin >> websiteDelete;
@@ -108,18 +103,27 @@ void Manager::deletePassword() {
 }
 
 void Manager::testPrintingMap() {
-    data["test"]["test"][0];
+    for (const auto &category: data) {
+        const std::map<std::string, std::vector<std::string>> &categoryValue = category.second;
+        for (const auto &website: categoryValue) {
+            const std::vector<std::string> &websiteValues = website.second;
+            std::cout << "Website: " + website.first << std::endl;
+            std::cout << "Login: " + websiteValues[0] << std::endl;
+            std::cout << "Password " + websiteValues[1] << std::endl;
+        }
+    }
 
-//    for (std::pair<std::string, )
 }
 
 void Manager::saveNewPassword() {
+    std::string category;
     std::string website;
     std::string login;
     std::string pass;
-    std::string result;
     char ownPass;
     std::cout << "Saving a new password" << std::endl;
+    std::cout << "Enter the category: ";
+    std::cin >> category;
     std::cout << "Enter the website what the password for: ";
     std::cin >> website;
     std::cout << "Enter the login: ";
@@ -144,9 +148,11 @@ void Manager::saveNewPassword() {
             }
         }
     }
+    std::vector<std::string> resultLoginPass;
+    resultLoginPass.push_back(login);
+    resultLoginPass.push_back(pass);
+
+    data[category][website] = resultLoginPass;
     std::cout << std::endl;
-    result = website + ":" + login + ":" + pass;
-//    int resultHash = simpleHash(result);
-    writingToFile(result);
-    std::cout << result << std::endl;
+    std::cout << "Your password for website: " + website + "was successfully saved" << std::endl;
 }

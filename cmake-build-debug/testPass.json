@@ -1,0 +1,31 @@
+{
+  "socialMedia": [
+    {
+      "website": "insta",
+      "login": "loginInsta",
+      "password": "passInsta"
+    },
+    {
+      "website": "telegram",
+      "login": "loginTg",
+      "password": "passTg"
+    },
+    {
+      "website": "tikTok",
+      "login": "loginTT",
+      "password": "passTT"
+    }
+  ],
+  "mails": [
+    {
+      "website": "gmail",
+      "login": "loginGmail",
+      "password": "passGmail"
+    },
+    {
+      "website": "pjatk",
+      "login": "loginPjatk",
+      "password": "passPjatk"
+    }
+  ]
+}

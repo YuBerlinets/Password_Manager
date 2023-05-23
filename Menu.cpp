@@ -62,7 +62,7 @@ void Menu::login() {
         }
     }
 
-    auto file = std::fstream("test.txt");
+    auto file = std::fstream("passKey.txt");
     std::string hash;
     file >> hash;
 

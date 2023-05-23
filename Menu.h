@@ -41,7 +41,7 @@ public:
         menuItems[2] = [&manager] { manager.updatePassword(); };
         menuItems[3] = [&manager] { manager.searchPassword(); };
         menuItems[4] = [this] { changingMainPassword(); };
-        menuItems[5] = [&manager] {manager.loadDataFromFile();};
+        menuItems[5] = [&manager] {manager.testPrintingMap();};
         while (isRunning) {
             std::cin >> input;
             if (input < 6 && input > -1) {
