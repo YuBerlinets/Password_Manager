@@ -5,7 +5,9 @@
 #include <vector>
 #include <string>
 #include <conio.h>
+#include <json.hpp>
 
+using json = nlohmann::json;
 
 void Manager::writingToFile(std::string &newData) {
     auto file = std::ofstream(getFilePath());
@@ -14,50 +16,41 @@ void Manager::writingToFile(std::string &newData) {
 
 void Manager::loadDataFromFile() {
     std::ifstream file(getFilePath());
-    std::string line;
-//    std::map<std::string, std::vector<std::string>> data;
-    while (std::getline(file, line)) {
-        std::size_t delimiterPos = line.find('-');
-        if (delimiterPos != std::string::npos) {
-            std::string key = line.substr(0, delimiterPos);
-            std::string valuesStr = line.substr(delimiterPos + 1);
+    json jsonData;
+    file >> jsonData;
+    for (const auto &category: jsonData.items()) {
+        std::string categoryName = category.key();
+        const auto &categoryData = category.value();
 
-            std::vector<std::string> values;
-            std::size_t colonPos = valuesStr.find(':');
-            while (colonPos != std::string::npos) {
-                std::string value = valuesStr.substr(0, colonPos);
-                values.push_back(value);
-                valuesStr = valuesStr.substr(colonPos + 1);
-                colonPos = valuesStr.find(':');
-            }
-            values.push_back(valuesStr);
+        for (const auto &item: categoryData) {
+            std::string website = item["website"];
+            std::string login = item["login"];
+            std::string password = item["password"];
 
-            data[key] = values;
+            data[categoryName][website].push_back(login);
+            data[categoryName][website].push_back(password);
         }
     }
-    //printing data only for tests
-//    for (const auto &keys: data) {
-//        std::cout << "Key: " << keys.first << std::endl;
-//        std::cout << "Values: ";
-//        const std::vector<std::string> &values = keys.second;
-//        for (const std::string &value: values) {
-//            std::cout << value << " ";
-//        }
-//        std::cout << std::endl;
-//    }
+    //test
+//    std::string category = "socialMedia";
+//    std::string website = "insta";
+//
+//    std::string output = "Login - " + data[category][website][0] + "\nPassword - " + data[category][website][1];
+//    std::cout << output << std::endl;
 }
 
 void Manager::searchPassword() {
     std::cout << "Searching for a password" << std::endl;
     std::cout << "Enter category: ";
-    std::string category;
-    std::cin >> category;
+    std::string categorySearch;
+    std::cin >> categorySearch;
     std::cout << "Enter the website: ";
-    std::string website;
-    std::cin >> website;
-    std::vector<std::string> info = data.at(category);
-    std::cout << "Login and password for the " + website << std::endl;
-    std::cout << info[1] + " " + info[2] << std::endl;
+    std::string websiteSearch;
+    std::cin >> websiteSearch;
+    std::string login = data[categorySearch][websiteSearch][0];
+    std::string password = data[categorySearch][websiteSearch][1];
+    std::cout << "Login: " + login << std::endl;
+    std::cout << "Password: " + password << std::endl;
 }
 
 
@@ -104,6 +97,20 @@ std::string Manager::generatingPassword() {
 
 void Manager::updatePassword() {
     std::cout << "Updating password" << std::endl;
+}
+
+void Manager::deletePassword() {
+    std::cout << "Enter the name of the website for deleting password: ";
+    std::string websiteDelete;
+    std::cin >> websiteDelete;
+
+
+}
+
+void Manager::testPrintingMap() {
+    data["test"]["test"][0];
+
+//    for (std::pair<std::string, )
 }
 
 void Manager::saveNewPassword() {

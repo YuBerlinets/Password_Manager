@@ -52,18 +52,21 @@ build cmake_object_order_depends_target_CPP_PROJECT: phony || CMakeFiles/CPP_PRO
 build CMakeFiles/CPP_PROJECT.dir/main.cpp.obj: CXX_COMPILER__CPP_PROJECT_Debug C$:/Users/ASUS/Desktop/c++/CPP_PROJECT/main.cpp || cmake_object_order_depends_target_CPP_PROJECT
   DEP_FILE = CMakeFiles\CPP_PROJECT.dir\main.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++20
+  INCLUDES = -IC:/Users/ASUS/Desktop/c++/CPP_PROJECT/include
   OBJECT_DIR = CMakeFiles\CPP_PROJECT.dir
   OBJECT_FILE_DIR = CMakeFiles\CPP_PROJECT.dir
 
 build CMakeFiles/CPP_PROJECT.dir/Menu.cpp.obj: CXX_COMPILER__CPP_PROJECT_Debug C$:/Users/ASUS/Desktop/c++/CPP_PROJECT/Menu.cpp || cmake_object_order_depends_target_CPP_PROJECT
   DEP_FILE = CMakeFiles\CPP_PROJECT.dir\Menu.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++20
+  INCLUDES = -IC:/Users/ASUS/Desktop/c++/CPP_PROJECT/include
   OBJECT_DIR = CMakeFiles\CPP_PROJECT.dir
   OBJECT_FILE_DIR = CMakeFiles\CPP_PROJECT.dir
 
 build CMakeFiles/CPP_PROJECT.dir/Manager.cpp.obj: CXX_COMPILER__CPP_PROJECT_Debug C$:/Users/ASUS/Desktop/c++/CPP_PROJECT/Manager.cpp || cmake_object_order_depends_target_CPP_PROJECT
   DEP_FILE = CMakeFiles\CPP_PROJECT.dir\Manager.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++20
+  INCLUDES = -IC:/Users/ASUS/Desktop/c++/CPP_PROJECT/include
   OBJECT_DIR = CMakeFiles\CPP_PROJECT.dir
   OBJECT_FILE_DIR = CMakeFiles\CPP_PROJECT.dir
 

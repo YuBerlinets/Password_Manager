@@ -9,8 +9,8 @@
 class Manager {
 private:
     const std::string filePath;
-    //<category, all other fields>
-    std::map<std::string, std::vector<std::string>> data;
+    //<category(map) -> website(map) -> login and pass (vector)>
+    std::map<std::string, std::map<std::string, std::vector<std::string>>> data;
 
     static std::string generatingPassword();
 
@@ -30,6 +30,10 @@ public:
     }
 
     void updatePassword();
+
+    void deletePassword();
+    //test
+    void testPrintingMap();
 
     void searchPassword();
 

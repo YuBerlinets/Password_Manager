@@ -32,6 +32,7 @@ public:
         std::cout<< "Enter the filename of path to the file: ";
         std::cin >> path;
         Manager manager(path);
+        //test loading json file
         manager.loadDataFromFile();
         printMenuOptions();
         int input;
