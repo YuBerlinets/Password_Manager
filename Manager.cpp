@@ -9,6 +9,7 @@
 
 using json = nlohmann::json;
 
+//TODO dopylyt` writingToFile method
 void Manager::writingToFile(std::string &newData) {
     auto file = std::ofstream(getFilePath());
     file << newData;
@@ -43,8 +44,10 @@ void Manager::searchPassword() {
     std::cin >> websiteSearch;
     std::string login = data[categorySearch][websiteSearch][0];
     std::string password = data[categorySearch][websiteSearch][1];
+    std::cout << "=-=-=-=-=-=-=" << std::endl;
     std::cout << "Login: " + login << std::endl;
     std::cout << "Password: " + password << std::endl;
+    std::cout << "=-=-=-=-=-=-=" << std::endl;
 }
 
 
@@ -94,25 +97,35 @@ void Manager::updatePassword() {
 }
 
 void Manager::deletePassword() {
-    //TODO write deletePassword method
     std::cout << "Enter the name of the website for deleting password: ";
     std::string websiteDelete;
     std::cin >> websiteDelete;
 
+    for (auto &category: data) {
+        std::map<std::string, std::vector<std::string>> &categoryValue = category.second;
+        if (categoryValue.count(websiteDelete) > 0) {
+            categoryValue.erase(websiteDelete);
+            std::cout << "Password for " << websiteDelete << " deleted successfully." << std::endl;
+            return;
+        }
+    }
 
+    std::cout << "Password for " << websiteDelete << " not found." << std::endl;
 }
+
 
 void Manager::testPrintingMap() {
     for (const auto &category: data) {
         const std::map<std::string, std::vector<std::string>> &categoryValue = category.second;
         for (const auto &website: categoryValue) {
             const std::vector<std::string> &websiteValues = website.second;
+            std::cout << "=-=-=-=-=-=-=" << std::endl;
             std::cout << "Website: " + website.first << std::endl;
             std::cout << "Login: " + websiteValues[0] << std::endl;
             std::cout << "Password " + websiteValues[1] << std::endl;
+            std::cout << "=-=-=-=-=-=-=" << std::endl;
         }
     }
-
 }
 
 void Manager::saveNewPassword() {

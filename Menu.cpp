@@ -9,7 +9,8 @@ void Menu::printMenuOptions() {
     std::cout << "2 - Update a password" << std::endl;
     std::cout << "3 - Search for a password" << std::endl;
     std::cout << "4 - Changing your main password" << std::endl;
-    std::cout << "5 - test loading file" << std::endl;
+    std::cout << "5 - Remove a password" << std::endl;
+    std::cout << "6 - test loading file" << std::endl;
     std::cout << "0 - Exit the program" << std::endl;
     std::cout << "Enter your choice: ";
 }

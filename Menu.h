@@ -7,6 +7,7 @@
 #include <windows.h>
 #include <functional>
 #include "Manager.h"
+
 #ifndef CPP_PROJECT_MENU_H
 #define CPP_PROJECT_MENU_H
 
@@ -20,16 +21,21 @@ private:
     void login();
 
     static void printMenuOptions();
+
     void changingMainPassword();
+
     unsigned int mainPasswordHash(const std::string &password);
+
     bool validateMainPassword(const std::string &password, const std::string &storedHash);
+
     void exit();
+
 public:
     Menu() {
         printConsoleIntro();
         login();
         std::string path;
-        std::cout<< "Enter the filename of path to the file: ";
+        std::cout << "Enter the filename of path to the file: ";
         std::cin >> path;
         Manager manager(path);
         //test loading json file
@@ -40,11 +46,12 @@ public:
         menuItems[1] = [&manager] { manager.saveNewPassword(); };
         menuItems[2] = [&manager] { manager.updatePassword(); };
         menuItems[3] = [&manager] { manager.searchPassword(); };
-        menuItems[4] = [this] { changingMainPassword(); };
-        menuItems[5] = [&manager] {manager.testPrintingMap();};
+        menuItems[4] = [this] { changingMainPassword(); }; //? to keep it
+        menuItems[5] = [&manager] { manager.deletePassword(); };
+        menuItems[6] = [&manager] { manager.testPrintingMap(); };
         while (isRunning) {
             std::cin >> input;
-            if (input < 6 && input > -1) {
+            if (input > -1 && input < menuItems.size() + 1) {
                 auto f = menuItems[input];
                 f();
                 std::cout << std::endl;
