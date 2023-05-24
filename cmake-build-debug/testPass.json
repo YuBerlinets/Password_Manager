@@ -1,4 +1,11 @@
 {
+  "games": [
+    {
+      "website": "steam",
+      "login": "loginSteam",
+      "password": "passSteam"
+    }
+  ],
   "socialMedia": [
     {
       "website": "insta",

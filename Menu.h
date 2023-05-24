@@ -43,12 +43,15 @@ public:
         printMenuOptions();
         int input;
         menuItems[0] = [this] { exit(); };
-        menuItems[1] = [&manager] { manager.saveNewPassword(); };
-        menuItems[2] = [&manager] { manager.updatePassword(); };
-        menuItems[3] = [&manager] { manager.searchPassword(); };
-        menuItems[4] = [this] { changingMainPassword(); }; //? to keep it
+        menuItems[1] = [&manager] { manager.searchPassword(); };
+        menuItems[2] = [&manager] { manager.sortPassword(); };
+        menuItems[3] = [&manager] { manager.saveNewPassword(); };
+        menuItems[4] = [&manager] { manager.updatePassword(); };
         menuItems[5] = [&manager] { manager.deletePassword(); };
-        menuItems[6] = [&manager] { manager.testPrintingMap(); };
+        menuItems[6] = [&manager] { manager.addCategory(); };
+        menuItems[7] = [&manager] { manager.removeCategory(); };
+        menuItems[8] = [this] { changingMainPassword(); }; //? to keep it
+        menuItems[9] = [&manager] { manager.testPrintingMap(); };
         while (isRunning) {
             std::cin >> input;
             if (input > -1 && input < menuItems.size() + 1) {

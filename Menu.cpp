@@ -5,12 +5,15 @@ void Menu::exit() {
 }
 
 void Menu::printMenuOptions() {
-    std::cout << "1 - Save a new password" << std::endl;
-    std::cout << "2 - Update a password" << std::endl;
-    std::cout << "3 - Search for a password" << std::endl;
-    std::cout << "4 - Changing your main password" << std::endl;
-    std::cout << "5 - Remove a password" << std::endl;
-    std::cout << "6 - test loading file" << std::endl;
+    std::cout << "1 - Search for a password" << std::endl;
+    std::cout << "2 - Sort passwords" << std::endl;
+    std::cout << "3 - Save a new password" << std::endl;
+    std::cout << "4 - Update a password" << std::endl;
+    std::cout << "5 - Delete a password" << std::endl;
+    std::cout << "6 - Add category" << std::endl;
+    std::cout << "7 - Delete category" << std::endl;
+    std::cout << "8 - Changing your main password" << std::endl;
+    std::cout << "9 - test loading file" << std::endl;
     std::cout << "0 - Exit the program" << std::endl;
     std::cout << "Enter your choice: ";
 }

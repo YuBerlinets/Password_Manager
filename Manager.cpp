@@ -34,6 +34,36 @@ void Manager::loadDataFromFile() {
     }
 }
 
+//TODO update sortPassword method
+void Manager::sortPassword() {
+    char type;
+    std::string category;
+    std::string website;
+    std::cout << "Enter type of search"
+                 "\nc - only category"
+                 "\nw - only website"
+                 "\nb - both category and website"
+                 "\n - > ";
+    std::cin >> type;
+    switch (type) {
+        case 'c':
+            std::cout << "Enter the category: ";
+            std::cin >> category;
+            for (auto &value: data[category]) {
+                std::cout << "Website: " + value.first << std::endl;
+                std::cout << "Login: " + value.second[0] << std::endl;
+                std::cout << "Password: " + value.second[1] << std::endl;
+            }
+            break;
+        case 'w':
+            break;
+        case 'b':
+            break;
+        default:
+            std::cout << "Incorrect input";
+    }
+}
+
 void Manager::searchPassword() {
     std::cout << "Searching for a password" << std::endl;
     std::cout << "Enter category: ";
@@ -50,6 +80,47 @@ void Manager::searchPassword() {
     std::cout << "=-=-=-=-=-=-=" << std::endl;
 }
 
+void Manager::saveNewPassword() {
+    std::string category;
+    std::string website;
+    std::string login;
+    std::string pass;
+    char ownPass;
+    std::cout << "Saving a new password" << std::endl;
+    std::cout << "Enter the category: ";
+    std::cin >> category;
+    std::cout << "Enter the website what the password for: ";
+    std::cin >> website;
+    std::cout << "Enter the login: ";
+    std::cin >> login;
+    std::cout << "Do you want to generate automatically password(y/n)? ";
+    std::cin >> ownPass;
+    if (ownPass == 'y') {
+        pass = generatingPassword();
+        std::cout << "Password -> " + pass << std::endl;
+    } else {
+        std::cout << "Enter the password: ";
+        char ch;
+        while ((ch = _getch()) != '\r') {
+            if (ch == '\b') {
+                if (!pass.empty()) {
+                    pass.pop_back();
+                    std::cout << "\b \b";
+                }
+            } else {
+                pass.push_back(ch);
+                std::cout << '*';
+            }
+        }
+    }
+    std::vector<std::string> resultLoginPass;
+    resultLoginPass.push_back(login);
+    resultLoginPass.push_back(pass);
+
+    data[category][website] = resultLoginPass;
+    std::cout << std::endl;
+    std::cout << "Your password for website: " + website + " was successfully saved" << std::endl;
+}
 
 const std::string specSymb = "!@#$%^&*";
 const std::string upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -92,27 +163,68 @@ std::string Manager::generatingPassword() {
     return result;
 }
 
+
 void Manager::updatePassword() {
-    std::cout << "Updating password" << std::endl;
+    std::string websiteUpdate;
+    std::string passUpdate;
+    std::cout << "Enter the website for which you want to update the password: " << std::endl;
+    std::cin >> websiteUpdate;
+    std::cout << "Enter the password: ";
+    char ch;
+    while ((ch = getch()) != '\r') {
+        if (ch == '\b') {
+            if (!passUpdate.empty()) {
+                passUpdate.pop_back();
+                std::cout << "\b \b";
+            }
+        } else {
+            passUpdate.push_back(ch);
+            std::cout << '*';
+        }
+    }
+    std::cout << std::endl;
+    for (auto &category: data) {
+        std::map<std::string, std::vector<std::string>> &categoryValue = category.second;
+        if (categoryValue.count(websiteUpdate) > 0) {
+            categoryValue[websiteUpdate][1] = passUpdate;
+            std::cout << "Password for " << websiteUpdate << " was successfully updated" << std::endl;
+            return;
+        }
+    }
+    std::cout << "Website - " << websiteUpdate << " hasn't been found" << std::endl;
 }
 
 void Manager::deletePassword() {
     std::cout << "Enter the name of the website for deleting password: ";
     std::string websiteDelete;
     std::cin >> websiteDelete;
-
     for (auto &category: data) {
         std::map<std::string, std::vector<std::string>> &categoryValue = category.second;
         if (categoryValue.count(websiteDelete) > 0) {
             categoryValue.erase(websiteDelete);
-            std::cout << "Password for " << websiteDelete << " deleted successfully." << std::endl;
+            std::cout << "Password for " << websiteDelete << " was successfully deleted" << std::endl;
             return;
         }
     }
 
-    std::cout << "Password for " << websiteDelete << " not found." << std::endl;
+    std::cout << "Website - " << websiteDelete << " hasn't been found" << std::endl;
 }
 
+void Manager::addCategory() {
+    std::cout << "adding category" << std::endl;
+}
+
+void Manager::removeCategory() {
+    std::string categoryRemove;
+    std::cout << "Enter the category to remove: ";
+    std::cin >> categoryRemove;
+    if (data.contains(categoryRemove)) {
+        data.erase(categoryRemove);
+        std::cout << "Category - " + categoryRemove + " was successfully deleted" << std::endl;
+    } else
+        std::cout << "Category - " + categoryRemove + " hasn't been found" << std::endl;
+
+}
 
 void Manager::testPrintingMap() {
     for (const auto &category: data) {
@@ -120,52 +232,11 @@ void Manager::testPrintingMap() {
         for (const auto &website: categoryValue) {
             const std::vector<std::string> &websiteValues = website.second;
             std::cout << "=-=-=-=-=-=-=" << std::endl;
+            std::cout << "Category: " + category.first << std::endl;
             std::cout << "Website: " + website.first << std::endl;
             std::cout << "Login: " + websiteValues[0] << std::endl;
-            std::cout << "Password " + websiteValues[1] << std::endl;
+            std::cout << "Password: " + websiteValues[1] << std::endl;
             std::cout << "=-=-=-=-=-=-=" << std::endl;
         }
     }
-}
-
-void Manager::saveNewPassword() {
-    std::string category;
-    std::string website;
-    std::string login;
-    std::string pass;
-    char ownPass;
-    std::cout << "Saving a new password" << std::endl;
-    std::cout << "Enter the category: ";
-    std::cin >> category;
-    std::cout << "Enter the website what the password for: ";
-    std::cin >> website;
-    std::cout << "Enter the login: ";
-    std::cin >> login;
-    std::cout << "Do you want to generate automatically password(y/n)? ";
-    std::cin >> ownPass;
-    if (ownPass == 'y') {
-        pass = generatingPassword();
-        std::cout << "Password -> " + pass << std::endl;
-    } else {
-        std::cout << "Enter the password: ";
-        char ch;
-        while ((ch = _getch()) != '\r') {
-            if (ch == '\b') {
-                if (!pass.empty()) {
-                    pass.pop_back();
-                    std::cout << "\b \b";
-                }
-            } else {
-                pass.push_back(ch);
-                std::cout << '*';
-            }
-        }
-    }
-    std::vector<std::string> resultLoginPass;
-    resultLoginPass.push_back(login);
-    resultLoginPass.push_back(pass);
-
-    data[category][website] = resultLoginPass;
-    std::cout << std::endl;
-    std::cout << "Your password for website: " + website + "was successfully saved" << std::endl;
 }
