@@ -43,6 +43,8 @@ public:
 
     void loadDataFromFile();
 
+    void saveTimeLogin();
+
     //test
     void testPrintingMap();
 };

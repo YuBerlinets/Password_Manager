@@ -34,14 +34,14 @@ public:
     Menu() {
         printConsoleIntro();
         login();
+
         std::string path;
         std::cout << "Enter the filename of path to the file: ";
         std::cin >> path;
         Manager manager(path);
-        //test loading json file
         manager.loadDataFromFile();
+        manager.saveTimeLogin();
         printMenuOptions();
-        int input;
         menuItems[0] = [this] { exit(); };
         menuItems[1] = [&manager] { manager.searchPassword(); };
         menuItems[2] = [&manager] { manager.sortPassword(); };
@@ -52,6 +52,8 @@ public:
         menuItems[7] = [&manager] { manager.removeCategory(); };
         menuItems[8] = [this] { changingMainPassword(); }; //? to keep it
         menuItems[9] = [&manager] { manager.testPrintingMap(); };
+
+        int input;
         while (isRunning) {
             std::cin >> input;
             if (input > -1 && input < menuItems.size() + 1) {
@@ -62,6 +64,7 @@ public:
                 std::cout << "Incorrect input" << std::endl;
             printMenuOptions();
         }
+
     }
 
 };

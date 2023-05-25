@@ -37,9 +37,7 @@ void Manager::loadDataFromFile() {
 //TODO update sortPassword method
 void Manager::sortPassword() {
     char type;
-    std::string category;
-    std::string website;
-    std::cout << "Enter type of search"
+    std::cout << "Enter type of sort"
                  "\nc - only category"
                  "\nw - only website"
                  "\nb - both category and website"
@@ -47,12 +45,17 @@ void Manager::sortPassword() {
     std::cin >> type;
     switch (type) {
         case 'c':
-            std::cout << "Enter the category: ";
-            std::cin >> category;
-            for (auto &value: data[category]) {
-                std::cout << "Website: " + value.first << std::endl;
-                std::cout << "Login: " + value.second[0] << std::endl;
-                std::cout << "Password: " + value.second[1] << std::endl;
+            for (const auto &category: data) {
+                const std::map<std::string, std::vector<std::string>> &categoryValue = category.second;
+                for (const auto &website: categoryValue) {
+                    const std::vector<std::string> &websiteValues = website.second;
+                    std::cout << "=-=-=-=-=-=-=" << std::endl;
+                    std::cout << "Category: " + category.first << std::endl;
+                    std::cout << "Website: " + website.first << std::endl;
+                    std::cout << "Login: " + websiteValues[0] << std::endl;
+                    std::cout << "Password: " + websiteValues[1] << std::endl;
+                    std::cout << "=-=-=-=-=-=-=" << std::endl;
+                }
             }
             break;
         case 'w':
@@ -239,4 +242,21 @@ void Manager::testPrintingMap() {
             std::cout << "=-=-=-=-=-=-=" << std::endl;
         }
     }
+}
+
+void Manager::saveTimeLogin() {
+    std::time_t currentTime = std::time(nullptr);
+    std::tm *localTime = std::localtime(&currentTime);
+    std::fstream file("timestamp.txt");
+    int year = localTime->tm_year;
+    int month = localTime->tm_mon;
+    int day = localTime->tm_mday;
+    int hour = localTime->tm_hour;
+    int minute = localTime->tm_min;
+//    std::string result = "Last login at " + hour + ":" + minute + ":" + second + "-" +
+//                         day + ":" + month + ":" + year;
+
+    file << "Last login: " << hour << ":" << minute << "-" << day << "/" << month + 1 << "/" << year+1900;
+
+
 }
