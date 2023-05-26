@@ -19,6 +19,8 @@ void Manager::loadDataFromFile() {
     std::ifstream file(getFilePath());
     json jsonData;
     file >> jsonData;
+    std::string test;
+
     for (const auto &category: jsonData.items()) {
         std::string categoryName = category.key();
         const auto &categoryData = category.value();
@@ -75,12 +77,16 @@ void Manager::searchPassword() {
     std::cout << "Enter the website: ";
     std::string websiteSearch;
     std::cin >> websiteSearch;
-    std::string login = data[categorySearch][websiteSearch][0];
-    std::string password = data[categorySearch][websiteSearch][1];
-    std::cout << "=-=-=-=-=-=-=" << std::endl;
-    std::cout << "Login: " + login << std::endl;
-    std::cout << "Password: " + password << std::endl;
-    std::cout << "=-=-=-=-=-=-=" << std::endl;
+    if (data.contains(categorySearch) && data[categorySearch].contains(websiteSearch)) {
+        std::string login = data[categorySearch][websiteSearch][0];
+        std::string password = data[categorySearch][websiteSearch][1];
+        std::cout << "=-=-=-=-=-=-=" << std::endl;
+        std::cout << "Login: " + login << std::endl;
+        std::cout << "Password: " + password << std::endl;
+        std::cout << "=-=-=-=-=-=-=" << std::endl;
+    } else
+        std::cout << "Password for such parameters hasn't been found" << std::endl;
+
 }
 
 void Manager::saveNewPassword() {
@@ -119,6 +125,11 @@ void Manager::saveNewPassword() {
     std::vector<std::string> resultLoginPass;
     resultLoginPass.push_back(login);
     resultLoginPass.push_back(pass);
+
+    if(data[category].size() == 1){
+        auto tmpMap =data[category].extract("");
+        tmpMap.key() = website;
+    }
 
     data[category][website] = resultLoginPass;
     std::cout << std::endl;
@@ -161,7 +172,6 @@ std::string Manager::generatingPassword() {
         int randomChar = rand() % sample.length();
         result.push_back(sample.at(randomChar));
     }
-
 
     return result;
 }
@@ -213,8 +223,20 @@ void Manager::deletePassword() {
     std::cout << "Website - " << websiteDelete << " hasn't been found" << std::endl;
 }
 
+
 void Manager::addCategory() {
-    std::cout << "adding category" << std::endl;
+    std::string categoryInput;
+    std::cout << "Enter new category: ";
+    std::cin >> categoryInput;
+    std::string tmp = "";
+    std::vector<std::string> tmpVec = {"", ""};
+
+    if (data.contains(categoryInput))
+        std::cout << categoryInput + " are already exits" << std::endl;
+    else {
+        data[categoryInput][tmp] = tmpVec;
+        std::cout << "New category - " + categoryInput + " was successfully created" << std::endl;
+    }
 }
 
 void Manager::removeCategory() {
@@ -256,7 +278,7 @@ void Manager::saveTimeLogin() {
 //    std::string result = "Last login at " + hour + ":" + minute + ":" + second + "-" +
 //                         day + ":" + month + ":" + year;
 
-    file << "Last login: " << hour << ":" << minute << "-" << day << "/" << month + 1 << "/" << year+1900;
+    file << "Last login: " << hour << ":" << minute << "-" << day << "/" << month + 1 << "/" << year + 1900;
 
 
 }

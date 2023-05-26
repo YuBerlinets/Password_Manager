@@ -5,3 +5,4 @@ auto main() -> int {
 }
 
 //TODO timestamp
+//TODO change main menu 3 points
