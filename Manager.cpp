@@ -9,14 +9,19 @@
 
 using json = nlohmann::json;
 
+
+
+
 //TODO dopylyt` writingToFile method
 void Manager::writingToFile(std::string &newData) {
-    auto file = std::ofstream(getFilePath());
-    file << newData;
+//    auto file = std::ofstream(getFilePath());
+//    file << newData;
 }
+
 
 void Manager::loadDataFromFile() {
     std::ifstream file(getFilePath());
+
     json jsonData;
     file >> jsonData;
     std::string test;
@@ -81,6 +86,7 @@ void Manager::searchPassword() {
         std::string login = data[categorySearch][websiteSearch][0];
         std::string password = data[categorySearch][websiteSearch][1];
         std::cout << "=-=-=-=-=-=-=" << std::endl;
+        std::cout << "Category: " + categorySearch << std::endl;
         std::cout << "Login: " + login << std::endl;
         std::cout << "Password: " + password << std::endl;
         std::cout << "=-=-=-=-=-=-=" << std::endl;
@@ -126,8 +132,8 @@ void Manager::saveNewPassword() {
     resultLoginPass.push_back(login);
     resultLoginPass.push_back(pass);
 
-    if(data[category].size() == 1){
-        auto tmpMap =data[category].extract("");
+    if (data[category].size() == 1) {
+        auto tmpMap = data[category].extract("");
         tmpMap.key() = website;
     }
 
@@ -219,7 +225,6 @@ void Manager::deletePassword() {
             return;
         }
     }
-
     std::cout << "Website - " << websiteDelete << " hasn't been found" << std::endl;
 }
 

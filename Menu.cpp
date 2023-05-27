@@ -1,5 +1,10 @@
 #include "Menu.h"
 
+bool Menu::checkingFileExistence(const std::string &path){
+    std::ifstream f(path.c_str());
+    return f.good();
+}
+
 void Menu::exit() {
     Menu::isRunning = false;
 }

@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 20)
 include_directories(include)
 add_library(json INTERFACE)
 
-add_executable(CPP_PROJECT main.cpp Menu.cpp Manager.cpp)
+add_executable(CPP_PROJECT main.cpp Menu.cpp Manager.cpp Encryptor.cpp)
 
 
 target_include_directories(json INTERFACE include)

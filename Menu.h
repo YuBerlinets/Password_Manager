@@ -28,6 +28,8 @@ private:
 
     bool validateMainPassword(const std::string &password, const std::string &storedHash);
 
+    bool checkingFileExistence(const std::string &path);
+
     void exit();
 
 public:
@@ -36,8 +38,13 @@ public:
         login();
 
         std::string path;
-        std::cout << "Enter the filename of path to the file: ";
-        std::cin >> path;
+        do {
+            std::cout << "Enter the filename of path to the file: ";
+            std::cin >> path;
+
+
+        } while (!checkingFileExistence(path));
+
         Manager manager(path);
         manager.loadDataFromFile();
         manager.saveTimeLogin();
@@ -52,7 +59,6 @@ public:
         menuItems[7] = [&manager] { manager.removeCategory(); };
         menuItems[8] = [this] { changingMainPassword(); }; //? to keep it
         menuItems[9] = [&manager] { manager.testPrintingMap(); };
-
         int input;
         while (isRunning) {
             std::cin >> input;
