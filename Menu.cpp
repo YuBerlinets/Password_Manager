@@ -1,6 +1,7 @@
+#include <ctime>
 #include "Menu.h"
 
-bool Menu::checkingFileExistence(const std::string &path){
+bool Menu::checkingFileExistence(const std::string &path) {
     std::ifstream f(path.c_str());
     return f.good();
 }
@@ -59,7 +60,7 @@ void Menu::login() {
     int attempts = 3;
 
     while (attempts != 0) {
-    std::cout << "Enter the password: ";
+        std::cout << "Enter the password: ";
         while ((ch = _getch()) != '\r') {
             if (ch == '\b') {
                 if (!pass.empty()) {
@@ -75,9 +76,12 @@ void Menu::login() {
         if (validateMainPassword(pass, hash)) {
             isRunning = true;
             password = pass;
+            passCorrect = true;
+            saveTimeLogin('c');
             std::cout << std::endl;
             break;
         } else {
+            saveTimeLogin('i');
             pass = "";
             std::cout << "\nIncorrect password" << std::endl;
             attempts--;
@@ -90,6 +94,25 @@ void Menu::login() {
     }
 }
 
+void Menu::saveTimeLogin(const char &log) {
+    std::fstream file("timestamp.txt");
+    std::time_t currentTime = std::time(nullptr);
+    std::tm *localTime = std::localtime(&currentTime);
+    srand((unsigned) time(NULL));
+    int random;
+    if (log == 'c')
+        random = 1000 + (std::rand() % (2000 - 1000 + 1));
+    else
+        random = 3000 + (std::rand() % (4000 - 3000 + 1));
+
+    std::string space = std::to_string(random) + "\n\n\n\n\n\n\n\n\n\n";
+    int year = localTime->tm_year;
+    int month = localTime->tm_mon;
+    int day = localTime->tm_mday;
+    int hour = localTime->tm_hour;
+    int minute = localTime->tm_min;
+    file << space << hour << space << minute << space << day << space << month + 1 << space << year + 1900 << space;
+}
 
 bool Menu::validateMainPassword(const std::string &password, const std::string &storedHash) {
     unsigned int hashedPassword = mainPasswordHash(password);

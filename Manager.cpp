@@ -8,21 +8,22 @@
 #include <json.hpp>
 #include <filesystem>
 #include <algorithm>
+
 using json = nlohmann::json;
 
 
 //TODO dopylyt` writingToFile method
 void Manager::writingToFile() {
     json jsonData;
-    for (const auto& category : data) {
-        const std::string& categoryName = category.first;
-        const std::map<std::string, std::vector<std::string>>& categoryData = category.second;
+    for (const auto &category: data) {
+        const std::string &categoryName = category.first;
+        const std::map<std::string, std::vector<std::string>> &categoryData = category.second;
 
         json websitesJsonArray;
 
-        for (const auto& website : categoryData) {
-            const std::string& websiteName = website.first;
-            const std::vector<std::string>& websiteValues = website.second;
+        for (const auto &website: categoryData) {
+            const std::string &websiteName = website.first;
+            const std::vector<std::string> &websiteValues = website.second;
             json websiteJsonObject;
             websiteJsonObject["website"] = websiteName;
             websiteJsonObject["login"] = websiteValues[0];
@@ -79,41 +80,47 @@ void Manager::sortPassword() {
         case 'c'://ask about lowercase
             std::ranges::sort(sortedPasswords.begin(), sortedPasswords.end(),
                               [](const std::vector<std::string> &a, const std::vector<std::string> &b) {
-                std::string firstWord = a[0];
-                std::string secondWord = b[0];
-                std::transform(firstWord.begin(),firstWord.end(),firstWord.begin(),::tolower);
-                std::transform(secondWord.begin(),secondWord.end(),secondWord.begin(),::tolower);
-                return firstWord < secondWord;
+                                  std::string firstWord = a[0];
+                                  std::string secondWord = b[0];
+                                  std::transform(firstWord.begin(), firstWord.end(), firstWord.begin(), ::tolower);
+                                  std::transform(secondWord.begin(), secondWord.end(), secondWord.begin(), ::tolower);
+                                  return firstWord < secondWord;
                               });
+            printDataForSorting(sortedPasswords);
             break;
         case 'w':
             std::ranges::sort(sortedPasswords.begin(), sortedPasswords.end(),
                               [](const std::vector<std::string> &a, const std::vector<std::string> &b) {
                                   std::string firstWord = a[1];
                                   std::string secondWord = b[1];
-                                  std::transform(firstWord.begin(),firstWord.end(),firstWord.begin(),::tolower);
-                                  std::transform(secondWord.begin(),secondWord.end(),secondWord.begin(),::tolower);
+                                  std::transform(firstWord.begin(), firstWord.end(), firstWord.begin(), ::tolower);
+                                  std::transform(secondWord.begin(), secondWord.end(), secondWord.begin(), ::tolower);
                                   return firstWord < secondWord;
                               });
+            printDataForSorting(sortedPasswords);
             break;
         case 'b':
             std::ranges::sort(sortedPasswords.begin(), sortedPasswords.end(),
                               [](const std::vector<std::string> &a, const std::vector<std::string> &b) {
                                   std::string firstWord = a[1];
                                   std::string secondWord = b[1];
-                                  std::transform(firstWord.begin(),firstWord.end(),firstWord.begin(),::tolower);
-                                  std::transform(secondWord.begin(),secondWord.end(),secondWord.begin(),::tolower);
+                                  std::transform(firstWord.begin(), firstWord.end(), firstWord.begin(), ::tolower);
+                                  std::transform(secondWord.begin(), secondWord.end(), secondWord.begin(), ::tolower);
                                   if (a[0] != b[0])
                                       return a[0] < b[0];
                                   else
                                       return firstWord < secondWord;
                               });
+            printDataForSorting(sortedPasswords);
             break;
         default:
             std::cout << "Incorrect input";
     }
 
-    for (auto &firstItem: sortedPasswords) {
+}
+
+void Manager::printDataForSorting(const std::vector<std::vector<std::string>> &vector) {
+    for (auto &firstItem: vector) {
         std::cout << "=-=-=-=-=-=-=" << std::endl;
         std::cout << "Category: " + firstItem[0] << std::endl;
         std::cout << "Website: " + firstItem[1] << std::endl;
@@ -238,7 +245,7 @@ std::string Manager::generatingPassword() {
     std::cin >> parameter2;
     parameter2 == 'y' ? sample += specSymb : sample = sample;
     if (parameter1 == 'l') {
-        sample += lowerCase; //? only lower but the numbers also ?
+        sample += lowerCase;
     } else if (parameter1 == 'u') {
         sample += upperCase;
     } else {
@@ -344,19 +351,6 @@ void Manager::testPrintingMap() {
     }
 }
 
-void Manager::saveTimeLogin() {
-    std::time_t currentTime = std::time(nullptr);
-    std::tm *localTime = std::localtime(&currentTime);
-    std::fstream file("timestamp.txt");
-    int year = localTime->tm_year;
-    int month = localTime->tm_mon;
-    int day = localTime->tm_mday;
-    int hour = localTime->tm_hour;
-    int minute = localTime->tm_min;
-//    std::string result = "Last login at " + hour + ":" + minute + ":" + second + "-" +
-//                         day + ":" + month + ":" + year;
-
-    file << "Last login: " << hour << ":" << minute << "-" << day << "/" << month + 1 << "/" << year + 1900;
 
 
-}
+

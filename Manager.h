@@ -19,6 +19,8 @@ private:
 
     std::vector<std::vector<std::string>> savingPasswordsForSorting();
 
+    static void printDataForSorting(const std::vector<std::vector<std::string>> &vector);
+
     Encryptor encryptor;
 
 public:
@@ -42,8 +44,6 @@ public:
     void removeCategory();
 
     void loadDataFromFile();
-
-    void saveTimeLogin();
 
     void writingToFile();
 
