@@ -22,14 +22,10 @@ private:
     Encryptor encryptor;
 
 public:
-    Manager(std::string &path) : filePath(path) {
+    Manager() {
 
     }
 
-
-    const std::string &getFilePath() const {
-        return filePath;
-    }
 
     void sortPassword();
 

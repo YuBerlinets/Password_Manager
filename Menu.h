@@ -43,13 +43,11 @@ public:
         do {
             std::cout << "Enter the filename of path to the file: ";
             std::cin >> path;
-
-
         } while (!checkingFileExistence(path));
         Encryptor encryptor;
-        encryptor.en_decodeFile(path, password);
+        encryptor.decryptFile(path, password);
 
-        Manager manager(path);
+        Manager manager;
         manager.loadDataFromFile();
         manager.saveTimeLogin();
         printMenuOptions();
@@ -66,17 +64,18 @@ public:
         int input;
         while (isRunning) {
             std::cin >> input;
-            if (input == 0){
+            if (input == 0) {
                 manager.writingToFile();
+                encryptor.encryptFile(password);
                 exit();
-            }
-            else if (input > 0 && input < menuItems.size() + 1) {
+            } else if (input > 0 && input < menuItems.size() + 1) {
                 auto f = menuItems[input];
                 f();
                 std::cout << std::endl;
-            } else
+            } else {
                 std::cout << "Incorrect input" << std::endl;
-            printMenuOptions();
+                printMenuOptions();
+            }
         }
 
     }

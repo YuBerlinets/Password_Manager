@@ -35,9 +35,9 @@ void Manager::writingToFile() {
         jsonData[categoryName] = websitesJsonArray;
     }
 
-    std::ofstream file("writingTest.json");
+    std::ofstream file("writingTMP.json");
 
-    file << jsonData.dump(4);
+    file << jsonData.dump(3);
     file.close();
 
 }
@@ -47,7 +47,6 @@ void Manager::loadDataFromFile() {
     std::ifstream file("tmp.json");
     json jsonData;
     file >> jsonData;
-    std::string test;
 
     for (const auto &category: jsonData.items()) {
         std::string categoryName = category.key();
@@ -190,7 +189,7 @@ void Manager::saveNewPassword() {
     } else {
         std::cout << "Enter the password: ";
         char ch;
-        while ((ch = _getch()) != '\r') {
+        while ((ch = getch()) != '\r') {
             if (ch == '\b') {
                 if (!pass.empty()) {
                     pass.pop_back();

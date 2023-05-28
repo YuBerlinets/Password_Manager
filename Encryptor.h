@@ -9,7 +9,8 @@ class Encryptor {
 private:
     std::string path;
 public:
-    void en_decodeFile(const std::string &file, const std::string &key);
+    void decryptFile(const std::string &file, const std::string &key);
+    void encryptFile( const std::string &key);
 };
 
 
