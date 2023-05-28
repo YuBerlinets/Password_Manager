@@ -15,6 +15,7 @@ class Menu {
 private:
     bool isRunning;
     std::map<int, std::function<void()>> menuItems;
+    std::string password;
 
     static void printConsoleIntro();
 
@@ -32,6 +33,7 @@ private:
 
     void exit();
 
+
 public:
     Menu() {
         printConsoleIntro();
@@ -44,6 +46,8 @@ public:
 
 
         } while (!checkingFileExistence(path));
+        Encryptor encryptor;
+        encryptor.en_decodeFile(path, password);
 
         Manager manager(path);
         manager.loadDataFromFile();
@@ -62,7 +66,11 @@ public:
         int input;
         while (isRunning) {
             std::cin >> input;
-            if (input > -1 && input < menuItems.size() + 1) {
+            if (input == 0){
+                manager.writingToFile();
+                exit();
+            }
+            else if (input > 0 && input < menuItems.size() + 1) {
                 auto f = menuItems[input];
                 f();
                 std::cout << std::endl;

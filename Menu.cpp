@@ -6,6 +6,7 @@ bool Menu::checkingFileExistence(const std::string &path){
 }
 
 void Menu::exit() {
+
     Menu::isRunning = false;
 }
 
@@ -73,6 +74,7 @@ void Menu::login() {
 
         if (validateMainPassword(pass, hash)) {
             isRunning = true;
+            password = pass;
             std::cout << std::endl;
             break;
         } else {

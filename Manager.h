@@ -1,6 +1,7 @@
 #include <map>
 #include <string>
 #include <vector>
+#include "Encryptor.h"
 
 #ifndef CPP_PROJECT_MANAGER_H
 #define CPP_PROJECT_MANAGER_H
@@ -15,7 +16,10 @@ private:
 
     static std::string generatingPassword();
 
-    void writingToFile(std::string &newData);
+
+    std::vector<std::vector<std::string>> savingPasswordsForSorting();
+
+    Encryptor encryptor;
 
 public:
     Manager(std::string &path) : filePath(path) {
@@ -44,6 +48,8 @@ public:
     void loadDataFromFile();
 
     void saveTimeLogin();
+
+    void writingToFile();
 
     //test
     void testPrintingMap();

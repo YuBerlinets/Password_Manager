@@ -1,7 +1,3 @@
-//
-// Created by ASUS on 27/05/2023.
-//
-
 #include "Encryptor.h"
 
 void Encryptor::en_decodeFile(const std::string &file, const std::string &key) {
@@ -14,7 +10,6 @@ void Encryptor::en_decodeFile(const std::string &file, const std::string &key) {
         outFile.put(encryptedByte);
     }
     inFile.close();
-    outFile.close();
 
     std::cout << "File encrypted or decrypted successfully." << std::endl;
 }

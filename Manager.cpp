@@ -6,22 +6,45 @@
 #include <string>
 #include <conio.h>
 #include <json.hpp>
-
+#include <filesystem>
+#include <algorithm>
 using json = nlohmann::json;
 
 
-
-
 //TODO dopylyt` writingToFile method
-void Manager::writingToFile(std::string &newData) {
-//    auto file = std::ofstream(getFilePath());
-//    file << newData;
+void Manager::writingToFile() {
+    json jsonData;
+    for (const auto& category : data) {
+        const std::string& categoryName = category.first;
+        const std::map<std::string, std::vector<std::string>>& categoryData = category.second;
+
+        json websitesJsonArray;
+
+        for (const auto& website : categoryData) {
+            const std::string& websiteName = website.first;
+            const std::vector<std::string>& websiteValues = website.second;
+            json websiteJsonObject;
+            websiteJsonObject["website"] = websiteName;
+            websiteJsonObject["login"] = websiteValues[0];
+            websiteJsonObject["password"] = websiteValues[1];
+
+            websitesJsonArray.push_back(websiteJsonObject);
+        }
+
+
+        jsonData[categoryName] = websitesJsonArray;
+    }
+
+    std::ofstream file("writingTest.json");
+
+    file << jsonData.dump(4);
+    file.close();
+
 }
 
 
 void Manager::loadDataFromFile() {
-    std::ifstream file(getFilePath());
-
+    std::ifstream file("tmp.json");
     json jsonData;
     file >> jsonData;
     std::string test;
@@ -39,39 +62,90 @@ void Manager::loadDataFromFile() {
             data[categoryName][website].push_back(password);
         }
     }
+    file.close();
+    std::filesystem::remove("tmp.json");
 }
 
-//TODO update sortPassword method
 void Manager::sortPassword() {
     char type;
+    std::vector<std::vector<std::string>> sortedPasswords = savingPasswordsForSorting();
     std::cout << "Enter type of sort"
                  "\nc - only category"
                  "\nw - only website"
                  "\nb - both category and website"
                  "\n - > ";
     std::cin >> type;
+
     switch (type) {
-        case 'c':
-            for (const auto &category: data) {
-                const std::map<std::string, std::vector<std::string>> &categoryValue = category.second;
-                for (const auto &website: categoryValue) {
-                    const std::vector<std::string> &websiteValues = website.second;
-                    std::cout << "=-=-=-=-=-=-=" << std::endl;
-                    std::cout << "Category: " + category.first << std::endl;
-                    std::cout << "Website: " + website.first << std::endl;
-                    std::cout << "Login: " + websiteValues[0] << std::endl;
-                    std::cout << "Password: " + websiteValues[1] << std::endl;
-                    std::cout << "=-=-=-=-=-=-=" << std::endl;
-                }
-            }
+        case 'c'://ask about lowercase
+            std::ranges::sort(sortedPasswords.begin(), sortedPasswords.end(),
+                              [](const std::vector<std::string> &a, const std::vector<std::string> &b) {
+                std::string firstWord = a[0];
+                std::string secondWord = b[0];
+                std::transform(firstWord.begin(),firstWord.end(),firstWord.begin(),::tolower);
+                std::transform(secondWord.begin(),secondWord.end(),secondWord.begin(),::tolower);
+                return firstWord < secondWord;
+                              });
             break;
         case 'w':
+            std::ranges::sort(sortedPasswords.begin(), sortedPasswords.end(),
+                              [](const std::vector<std::string> &a, const std::vector<std::string> &b) {
+                                  std::string firstWord = a[1];
+                                  std::string secondWord = b[1];
+                                  std::transform(firstWord.begin(),firstWord.end(),firstWord.begin(),::tolower);
+                                  std::transform(secondWord.begin(),secondWord.end(),secondWord.begin(),::tolower);
+                                  return firstWord < secondWord;
+                              });
             break;
         case 'b':
+            std::ranges::sort(sortedPasswords.begin(), sortedPasswords.end(),
+                              [](const std::vector<std::string> &a, const std::vector<std::string> &b) {
+                                  std::string firstWord = a[1];
+                                  std::string secondWord = b[1];
+                                  std::transform(firstWord.begin(),firstWord.end(),firstWord.begin(),::tolower);
+                                  std::transform(secondWord.begin(),secondWord.end(),secondWord.begin(),::tolower);
+                                  if (a[0] != b[0])
+                                      return a[0] < b[0];
+                                  else
+                                      return firstWord < secondWord;
+                              });
             break;
         default:
             std::cout << "Incorrect input";
     }
+
+    for (auto &firstItem: sortedPasswords) {
+        std::cout << "=-=-=-=-=-=-=" << std::endl;
+        std::cout << "Category: " + firstItem[0] << std::endl;
+        std::cout << "Website: " + firstItem[1] << std::endl;
+        std::cout << "Login: " + firstItem[2] << std::endl;
+        std::cout << "Password: " + firstItem[3] << std::endl;
+        std::cout << "=-=-=-=-=-=-=" << std::endl;
+
+    }
+}
+
+std::vector<std::vector<std::string>> Manager::savingPasswordsForSorting() {
+    std::vector<std::vector<std::string>> sortedPasswords;
+
+    for (const auto &category: data) {
+        const std::string &categoryName = category.first;
+        const std::map<std::string, std::vector<std::string>> &categoryValue = category.second;
+
+        for (const auto &website: categoryValue) {
+            const std::string &websiteName = website.first;
+            const std::vector<std::string> &websiteValues = website.second;
+
+            std::vector<std::string> passwordEntry;
+            passwordEntry.push_back(categoryName);
+            passwordEntry.push_back(websiteName);
+            passwordEntry.push_back(websiteValues[0]);
+            passwordEntry.push_back(websiteValues[1]);
+
+            sortedPasswords.push_back(passwordEntry);
+        }
+    }
+    return sortedPasswords;
 }
 
 void Manager::searchPassword() {
