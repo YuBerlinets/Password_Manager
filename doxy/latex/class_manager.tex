@@ -1,0 +1,211 @@
+\doxysection{Manager Class Reference}
+\hypertarget{class_manager}{}\label{class_manager}\index{Manager@{Manager}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_manager_afeb5bb26b9c47a4ba9be0d111a18cdd0}{sort\+Password}} ()
+\begin{DoxyCompactList}\small\item\em Sorting data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_manager_a10f7549efba17beb29c17ef73a2dcdef}{search\+Password}} ()
+\begin{DoxyCompactList}\small\item\em Searching for exact password. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_manager_a9d765be2fd069871f56b1d1dda44aa0a}{save\+New\+Password}} ()
+\begin{DoxyCompactList}\small\item\em Saving new password. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_manager_a5943b5dc3f9099307eb5fa4707be0db8}{update\+Password}} ()
+\begin{DoxyCompactList}\small\item\em Updating password for website. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_manager_a8a9593ae761bed0cd2d8f0bd78907feb}{delete\+Password}} ()
+\begin{DoxyCompactList}\small\item\em Deleting existed password. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_manager_ad54c0f144811f275ddac33bcc43a2fe2}{add\+Category}} ()
+\begin{DoxyCompactList}\small\item\em Adding new category. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_manager_a57e07b640ec0d6f4ce29fc2a3e740337}{remove\+Category}} ()
+\begin{DoxyCompactList}\small\item\em Removing existed category. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_manager_a2095c5a55177734ec49a593717de2f11}{load\+Data\+From\+File}} ()
+\begin{DoxyCompactList}\small\item\em Loading data from file to map. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_manager_a2deae959463e9e5a98a3b81aebeee720}{writing\+To\+File}} ()
+\begin{DoxyCompactList}\small\item\em Saving data to file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::vector$<$ std\+::string $>$ $>$ \mbox{\hyperlink{class_manager_a25fbc31e9da53ca9810a62f733708d18}{saving\+Passwords\+For\+Sorting}} ()
+\begin{DoxyCompactList}\small\item\em Saving data to vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::string \mbox{\hyperlink{class_manager_a2b9e18e59b473579d50a68c508549521}{generating\+Password}} ()
+\begin{DoxyCompactList}\small\item\em Password generation. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_manager_aef48803bee3c25cd5b82d105b582bad1}{print\+Data\+For\+Sorting}} (const std\+::vector$<$ std\+::vector$<$ std\+::string $>$ $>$ \&vector)
+\begin{DoxyCompactList}\small\item\em Printing sorted data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_manager_ad54c0f144811f275ddac33bcc43a2fe2}\label{class_manager_ad54c0f144811f275ddac33bcc43a2fe2} 
+\index{Manager@{Manager}!addCategory@{addCategory}}
+\index{addCategory@{addCategory}!Manager@{Manager}}
+\doxysubsubsection{\texorpdfstring{addCategory()}{addCategory()}}
+{\footnotesize\ttfamily void Manager\+::add\+Category (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Adding new category. 
+
+Adds new empty category to our map \"{}data\"{}.~\newline
+Asks user to enter a new name for category.~\newline
+Checks if category with entered name doesn\textquotesingle{}t exist, if not creates new. \Hypertarget{class_manager_a8a9593ae761bed0cd2d8f0bd78907feb}\label{class_manager_a8a9593ae761bed0cd2d8f0bd78907feb} 
+\index{Manager@{Manager}!deletePassword@{deletePassword}}
+\index{deletePassword@{deletePassword}!Manager@{Manager}}
+\doxysubsubsection{\texorpdfstring{deletePassword()}{deletePassword()}}
+{\footnotesize\ttfamily void Manager\+::delete\+Password (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Deleting existed password. 
+
+Deletes already existed password.~\newline
+Takes from user website, checks if such website exists in our \"{}data\"{}.~\newline
+If website exists, it will delete all information about that website. \Hypertarget{class_manager_a2b9e18e59b473579d50a68c508549521}\label{class_manager_a2b9e18e59b473579d50a68c508549521} 
+\index{Manager@{Manager}!generatingPassword@{generatingPassword}}
+\index{generatingPassword@{generatingPassword}!Manager@{Manager}}
+\doxysubsubsection{\texorpdfstring{generatingPassword()}{generatingPassword()}}
+{\footnotesize\ttfamily std\+::string Manager\+::generating\+Password (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Password generation. 
+
+Generates a password depending on user input, such that
+\begin{DoxyItemize}
+\item number of characters
+\item lower, upper or both cases
+\item including special symbols or no \begin{DoxyReturn}{Returns}
+generated password 
+\end{DoxyReturn}
+
+\end{DoxyItemize}\Hypertarget{class_manager_a2095c5a55177734ec49a593717de2f11}\label{class_manager_a2095c5a55177734ec49a593717de2f11} 
+\index{Manager@{Manager}!loadDataFromFile@{loadDataFromFile}}
+\index{loadDataFromFile@{loadDataFromFile}!Manager@{Manager}}
+\doxysubsubsection{\texorpdfstring{loadDataFromFile()}{loadDataFromFile()}}
+{\footnotesize\ttfamily void Manager\+::load\+Data\+From\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Loading data from file to map. 
+
+Reads all data from decrypted json file, using nlohmann library and saves it to map \"{}data\"{}, which represents such structure\+:~\newline
+std\+::map$<$std\+::string, std\+::map$<$std\+::string, std\+::vector$<$std\+::string$>$$>$$>$ data~\newline
+\texorpdfstring{$<$}{<}category, \texorpdfstring{$<$}{<}website, \texorpdfstring{$<$}{<}login, password\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}~\newline
+
+\begin{DoxyItemize}
+\item map with \"{}\+Category\"{} as key, and map \"{}\+Category\+Value\"{} as value~\newline
+
+\item map with \"{}\+Website\"{} as key and vector of string as value~\newline
+
+\item vector where only two elements\+: login and password. 
+\end{DoxyItemize}\Hypertarget{class_manager_aef48803bee3c25cd5b82d105b582bad1}\label{class_manager_aef48803bee3c25cd5b82d105b582bad1} 
+\index{Manager@{Manager}!printDataForSorting@{printDataForSorting}}
+\index{printDataForSorting@{printDataForSorting}!Manager@{Manager}}
+\doxysubsubsection{\texorpdfstring{printDataForSorting()}{printDataForSorting()}}
+{\footnotesize\ttfamily void Manager\+::print\+Data\+For\+Sorting (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ std\+::string $>$ $>$ \&}]{vector }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Printing sorted data. 
+
+Prints alphabetically sorted data from given vector, depending on user\textquotesingle{}s input c -\/ only category w -\/ only website b -\/ both 
+\begin{DoxyParams}{Parameters}
+{\em vector} & not sorted vector with all data \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_manager_a57e07b640ec0d6f4ce29fc2a3e740337}\label{class_manager_a57e07b640ec0d6f4ce29fc2a3e740337} 
+\index{Manager@{Manager}!removeCategory@{removeCategory}}
+\index{removeCategory@{removeCategory}!Manager@{Manager}}
+\doxysubsubsection{\texorpdfstring{removeCategory()}{removeCategory()}}
+{\footnotesize\ttfamily void Manager\+::remove\+Category (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Removing existed category. 
+
+Deletes entire category.~\newline
+Asks user to enter a new name for category.~\newline
+Checks if category with entered name exists, then delete all data connected to it \Hypertarget{class_manager_a9d765be2fd069871f56b1d1dda44aa0a}\label{class_manager_a9d765be2fd069871f56b1d1dda44aa0a} 
+\index{Manager@{Manager}!saveNewPassword@{saveNewPassword}}
+\index{saveNewPassword@{saveNewPassword}!Manager@{Manager}}
+\doxysubsubsection{\texorpdfstring{saveNewPassword()}{saveNewPassword()}}
+{\footnotesize\ttfamily void Manager\+::save\+New\+Password (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Saving new password. 
+
+Saves a new password to the map \"{}data\"{}.~\newline
+Asks all necessary information from user -\/ category, website, login and generating password.~\newline
+Generating based on user\textquotesingle{}s input might be generating automatically according to \"{}generating\+Password\"{} method, otherwise user should write password by themself. \Hypertarget{class_manager_a25fbc31e9da53ca9810a62f733708d18}\label{class_manager_a25fbc31e9da53ca9810a62f733708d18} 
+\index{Manager@{Manager}!savingPasswordsForSorting@{savingPasswordsForSorting}}
+\index{savingPasswordsForSorting@{savingPasswordsForSorting}!Manager@{Manager}}
+\doxysubsubsection{\texorpdfstring{savingPasswordsForSorting()}{savingPasswordsForSorting()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::vector$<$ std\+::string $>$ $>$ Manager\+::saving\+Passwords\+For\+Sorting (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Saving data to vector. 
+
+store data from entire map \"{}data\"{} data to vector in order to sort it in the future \begin{DoxyReturn}{Returns}
+vector with all categories, websites, logins and passwords 
+\end{DoxyReturn}
+\Hypertarget{class_manager_a10f7549efba17beb29c17ef73a2dcdef}\label{class_manager_a10f7549efba17beb29c17ef73a2dcdef} 
+\index{Manager@{Manager}!searchPassword@{searchPassword}}
+\index{searchPassword@{searchPassword}!Manager@{Manager}}
+\doxysubsubsection{\texorpdfstring{searchPassword()}{searchPassword()}}
+{\footnotesize\ttfamily void Manager\+::search\+Password (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Searching for exact password. 
+
+Prints a information about password, which user were looking for.~\newline
+User\textquotesingle{}s input\+:~\newline
+
+\begin{DoxyEnumerate}
+\item category~\newline
+
+\item website 
+\end{DoxyEnumerate}\Hypertarget{class_manager_afeb5bb26b9c47a4ba9be0d111a18cdd0}\label{class_manager_afeb5bb26b9c47a4ba9be0d111a18cdd0} 
+\index{Manager@{Manager}!sortPassword@{sortPassword}}
+\index{sortPassword@{sortPassword}!Manager@{Manager}}
+\doxysubsubsection{\texorpdfstring{sortPassword()}{sortPassword()}}
+{\footnotesize\ttfamily void Manager\+::sort\+Password (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sorting data. 
+
+Prints sorted information, depending on user\textquotesingle{}s input~\newline
+c -\/ only category~\newline
+w -\/ only website~\newline
+b -\/ both \Hypertarget{class_manager_a5943b5dc3f9099307eb5fa4707be0db8}\label{class_manager_a5943b5dc3f9099307eb5fa4707be0db8} 
+\index{Manager@{Manager}!updatePassword@{updatePassword}}
+\index{updatePassword@{updatePassword}!Manager@{Manager}}
+\doxysubsubsection{\texorpdfstring{updatePassword()}{updatePassword()}}
+{\footnotesize\ttfamily void Manager\+::update\+Password (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Updating password for website. 
+
+Updates already existed record.~\newline
+ Takes from user category and website, checks if such website exists in our \"{}data\"{}.~\newline
+ If website exists, it will ask user to enter new password. \Hypertarget{class_manager_a2deae959463e9e5a98a3b81aebeee720}\label{class_manager_a2deae959463e9e5a98a3b81aebeee720} 
+\index{Manager@{Manager}!writingToFile@{writingToFile}}
+\index{writingToFile@{writingToFile}!Manager@{Manager}}
+\doxysubsubsection{\texorpdfstring{writingToFile()}{writingToFile()}}
+{\footnotesize\ttfamily void Manager\+::writing\+To\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Saving data to file. 
+
+Writes all data from our map \"{}data\"{} to json file, using nlohmann library.~\newline
+After writing to the file it will be immediately encrypted using XOR cypher. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Manager.\+h\item 
+Manager.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,52 @@
+\doxysection{Encryptor Class Reference}
+\hypertarget{class_encryptor}{}\label{class_encryptor}\index{Encryptor@{Encryptor}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_encryptor_a66208bf3dd7a473c9a092b8da08a64fa}{decrypt\+File}} (const std\+::string \&file, const std\+::string \&key)
+\begin{DoxyCompactList}\small\item\em Decrypting data in file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_encryptor_a976dfee4092de8912f02d2b8f5a1b672}{encrypt\+File}} (const std\+::string \&key)
+\begin{DoxyCompactList}\small\item\em Encrypting data in file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_encryptor_a66208bf3dd7a473c9a092b8da08a64fa}\label{class_encryptor_a66208bf3dd7a473c9a092b8da08a64fa} 
+\index{Encryptor@{Encryptor}!decryptFile@{decryptFile}}
+\index{decryptFile@{decryptFile}!Encryptor@{Encryptor}}
+\doxysubsubsection{\texorpdfstring{decryptFile()}{decryptFile()}}
+{\footnotesize\ttfamily void Encryptor\+::decrypt\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file,  }\item[{const std\+::string \&}]{key }\end{DoxyParamCaption})}
+
+
+
+Decrypting data in file. 
+
+Decrypts the file passed as 1st parameter(it\textquotesingle{}s that file, that we enter when we start our program), using first letter of our password passed as second argument.~\newline
+Method uses standard XOR cypher, which implement XOR operator on every char from the first file, passed as first argument and put it on the tmp json file from which we will read all the data to store in our map \"{}data\"{}. 
+\begin{DoxyParams}{Parameters}
+{\em file} & File we entered on the start of our program. \\
+\hline
+{\em key} & Our main password. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_encryptor_a976dfee4092de8912f02d2b8f5a1b672}\label{class_encryptor_a976dfee4092de8912f02d2b8f5a1b672} 
+\index{Encryptor@{Encryptor}!encryptFile@{encryptFile}}
+\index{encryptFile@{encryptFile}!Encryptor@{Encryptor}}
+\doxysubsubsection{\texorpdfstring{encryptFile()}{encryptFile()}}
+{\footnotesize\ttfamily void Encryptor\+::encrypt\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key }\end{DoxyParamCaption})}
+
+
+
+Encrypting data in file. 
+
+This method calls when we end executing of our program. ~\newline
+It would take all the data from tmp json file, where we store all our data after all changes during our session in app and encrypt it using similar to \"{}decrypt\+File\"{} XOR method. 
+\begin{DoxyParams}{Parameters}
+{\em key} & Our main password. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Encryptor.\+h\item 
+Encryptor.\+cpp\end{DoxyCompactItemize}

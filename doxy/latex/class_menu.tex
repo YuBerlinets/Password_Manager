@@ -1,0 +1,156 @@
+\doxysection{Menu Class Reference}
+\hypertarget{class_menu}{}\label{class_menu}\index{Menu@{Menu}}
+
+
+\doxylink{class_menu}{Menu} class which takes a input from user in order to give access to functionality.  
+
+
+
+
+{\ttfamily \#include $<$Menu.\+h$>$}
+
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_menu_aaca4b67618b55645e98864eb6defd9e1}{login}} ()
+\begin{DoxyCompactList}\small\item\em Login to an app. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{class_menu_a7bb430a2f1fa74b810f161f26808ae94}{main\+Password\+Hash}} (const std\+::string \&password)
+\item 
+bool \mbox{\hyperlink{class_menu_a3bdba854a14cc04fc4285d2c58c73971}{validate\+Main\+Password}} (const std\+::string \&password, const std\+::string \&stored\+Hash)
+\begin{DoxyCompactList}\small\item\em Password validation. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_menu_a5d0b206519bec12f5933293ef3c1fff7}{checking\+File\+Existence}} (const std\+::string \&path)
+\begin{DoxyCompactList}\small\item\em Checks if the file entered by user exists. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_ade755f2e7d8aca9d795f054504592eba}{exit}} ()
+\begin{DoxyCompactList}\small\item\em Finishes executing of the program. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_a91499da5f8fdbec77a747ee44d5e6c4c}{save\+Time\+Login}} (const char \&log)
+\begin{DoxyCompactList}\small\item\em Saving time of login. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_menu_aac669b90243d4f05ec63869bfc856867}{print\+Console\+Intro}} ()
+\item 
+static void \mbox{\hyperlink{class_menu_ad8b0f70e82c294ebf7ec3f0c2b8e3c61}{print\+Menu\+Options}} ()
+\begin{DoxyCompactList}\small\item\em Prints all available options to the user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{class_menu}{Menu} class which takes a input from user in order to give access to functionality. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_menu_a5d0b206519bec12f5933293ef3c1fff7}\label{class_menu_a5d0b206519bec12f5933293ef3c1fff7} 
+\index{Menu@{Menu}!checkingFileExistence@{checkingFileExistence}}
+\index{checkingFileExistence@{checkingFileExistence}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{checkingFileExistence()}{checkingFileExistence()}}
+{\footnotesize\ttfamily bool Menu\+::checking\+File\+Existence (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Checks if the file entered by user exists. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & -\/ Path to the file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True, if file exists and false if it doesn\textquotesingle{}t 
+\end{DoxyReturn}
+\Hypertarget{class_menu_ade755f2e7d8aca9d795f054504592eba}\label{class_menu_ade755f2e7d8aca9d795f054504592eba} 
+\index{Menu@{Menu}!exit@{exit}}
+\index{exit@{exit}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{exit()}{exit()}}
+{\footnotesize\ttfamily void Menu\+::exit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Finishes executing of the program. 
+
+Sets is\+Running field to false \Hypertarget{class_menu_aaca4b67618b55645e98864eb6defd9e1}\label{class_menu_aaca4b67618b55645e98864eb6defd9e1} 
+\index{Menu@{Menu}!login@{login}}
+\index{login@{login}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{login()}{login()}}
+{\footnotesize\ttfamily void Menu\+::login (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Login to an app. 
+
+Asks user to input password and checks previously saved hash of this password if password is correct then program continue its executing, sets \"{}is\+Running\"{} to true and \"{}pass\+Correct\"{} to true~\newline
+If user fails 3 attempts to enter the password, program will immediately close \Hypertarget{class_menu_a7bb430a2f1fa74b810f161f26808ae94}\label{class_menu_a7bb430a2f1fa74b810f161f26808ae94} 
+\index{Menu@{Menu}!mainPasswordHash@{mainPasswordHash}}
+\index{mainPasswordHash@{mainPasswordHash}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{mainPasswordHash()}{mainPasswordHash()}}
+{\footnotesize\ttfamily unsigned int Menu\+::main\+Password\+Hash (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Generates hash from the given password 
+\begin{DoxyParams}{Parameters}
+{\em password} & -\/ given password \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+hash as unsigned int 
+\end{DoxyReturn}
+\Hypertarget{class_menu_aac669b90243d4f05ec63869bfc856867}\label{class_menu_aac669b90243d4f05ec63869bfc856867} 
+\index{Menu@{Menu}!printConsoleIntro@{printConsoleIntro}}
+\index{printConsoleIntro@{printConsoleIntro}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{printConsoleIntro()}{printConsoleIntro()}}
+{\footnotesize\ttfamily void Menu\+::print\+Console\+Intro (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Prints text \"{}\+Password manager\"{} to the console \Hypertarget{class_menu_ad8b0f70e82c294ebf7ec3f0c2b8e3c61}\label{class_menu_ad8b0f70e82c294ebf7ec3f0c2b8e3c61} 
+\index{Menu@{Menu}!printMenuOptions@{printMenuOptions}}
+\index{printMenuOptions@{printMenuOptions}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{printMenuOptions()}{printMenuOptions()}}
+{\footnotesize\ttfamily void Menu\+::print\+Menu\+Options (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Prints all available options to the user. 
+
+1 -\/ Search for a password~\newline
+2 -\/ Sort passwords~\newline
+3 -\/ Save a new password~\newline
+4 -\/ Update a password~\newline
+5 -\/ Delete a password~\newline
+6 -\/ Add category~\newline
+7 -\/ Delete category~\newline
+0 -\/ Exit the program \Hypertarget{class_menu_a91499da5f8fdbec77a747ee44d5e6c4c}\label{class_menu_a91499da5f8fdbec77a747ee44d5e6c4c} 
+\index{Menu@{Menu}!saveTimeLogin@{saveTimeLogin}}
+\index{saveTimeLogin@{saveTimeLogin}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{saveTimeLogin()}{saveTimeLogin()}}
+{\footnotesize\ttfamily void Menu\+::save\+Time\+Login (\begin{DoxyParamCaption}\item[{const char \&}]{log }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Saving time of login. 
+
+Saves login time to the file, using separation to make it more secure 
+\begin{DoxyParams}{Parameters}
+{\em log} & -\/ Takes parameter of successful entering the program or no \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_menu_a3bdba854a14cc04fc4285d2c58c73971}\label{class_menu_a3bdba854a14cc04fc4285d2c58c73971} 
+\index{Menu@{Menu}!validateMainPassword@{validateMainPassword}}
+\index{validateMainPassword@{validateMainPassword}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{validateMainPassword()}{validateMainPassword()}}
+{\footnotesize\ttfamily bool Menu\+::validate\+Main\+Password (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{password,  }\item[{const std\+::string \&}]{stored\+Hash }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Password validation. 
+
+Validate if the password entered by user is similar to already stored in system 
+\begin{DoxyParams}{Parameters}
+{\em password} & -\/ Password entered by user \\
+\hline
+{\em stored\+Hash} & -\/ Stored hash of main password \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True or false, depending on correctness of entered password 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Menu.\+h\item 
+Menu.\+cpp\end{DoxyCompactItemize}
