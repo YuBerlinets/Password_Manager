@@ -32,7 +32,7 @@ public:
      * "decryptFile" XOR method.
      * @param key Our main password.
      */
-    void encryptFile( const std::string &key);
+    void encryptFile(const std::string &file, const std::string &key);
 };
 
 

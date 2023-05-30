@@ -121,6 +121,45 @@ bool Menu::validateMainPassword(const std::string &password, const std::string &
     return (hashString == storedHash);
 }
 
+
+void Menu::actionsType() {
+    int input;
+    bool validInput = false;
+    do {
+
+        std::cout << "Enter what type of operation you would like to do" << std::endl;
+        std::cout << "1 - Provide file of path to file." << std::endl;
+        std::cout << "2 - Create a new file." << std::endl;
+        std::cout << "Enter your choice: ";
+        std::cin >> input;
+        switch (input) {
+            case 1:
+                do {
+                    std::cout << "Enter the filename of path to the file: ";
+                    std::cin >> path;
+                } while (!checkingFileExistence(path));
+                validInput = true;
+                break;
+            case 2: {
+                std::string name;
+                std::cout << "Enter the name of new file with file extension(.json)" << std::endl;
+                std::cout << "-> ";
+                std::cin >> name;
+                creationNewFile(name);
+                validInput = true;
+                break;
+            }
+            default:
+                std::cout << "Incorrect input" << std::endl;
+        }
+    } while (!validInput);
+}
+
+void Menu::creationNewFile(const std::string &name) {
+    newFile = true;
+    path = name;
+}
+
 void Menu::printConsoleIntro() {
     HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(h, 10);

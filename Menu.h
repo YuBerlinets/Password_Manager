@@ -20,11 +20,25 @@ private:
     bool isRunning;
     std::map<int, std::function<void()>> menuItems;
     std::string password;
+    std::string path;
     bool passCorrect = false;
+    bool newFile = false;
+
     /**
      * Prints text "Password manager" to the console
      */
     static void printConsoleIntro();
+
+    /**
+     * \brief Choosing the file.
+     *
+     * Asks user on which file them would like to perform actions.\n
+     * Asks for the path to the existing file or create a new one.
+     */
+    void actionsType();
+
+    void creationNewFile(const std::string &name);
+
     /**
      * \brief Login to an app.
      *
@@ -50,6 +64,7 @@ private:
     static void printMenuOptions();
 
     void changingMainPassword();
+
     /**
      * Generates hash from the given password
      * @param password - given password
@@ -66,6 +81,7 @@ private:
      * @return True or false, depending on correctness of entered password
      */
     bool validateMainPassword(const std::string &password, const std::string &storedHash);
+
     /**
      * \brief Checks if the file entered by user exists
      *
@@ -73,12 +89,14 @@ private:
      * @return True, if file exists and false if it doesn't
      */
     bool checkingFileExistence(const std::string &path);
+
     /**
      * \brief Finishes executing of the program
      *
      * Sets isRunning field to false
      */
     void exit();
+
     /**
      * \brief Saving time of login
      *
@@ -92,18 +110,16 @@ public:
 
         printConsoleIntro();
         login();
+        actionsType();
 
 
         Manager manager;
         if (passCorrect) {
-            std::string path;
-            do {
-                std::cout << "Enter the filename of path to the file: ";
-                std::cin >> path;
-            } while (!checkingFileExistence(path));
             Encryptor encryptor;
-            encryptor.decryptFile(path, password);
-            manager.loadDataFromFile();
+            if (!newFile) {
+                encryptor.decryptFile(path, password);
+                manager.loadDataFromFile();
+            }
             printMenuOptions();
             menuItems[0] = [this] { exit(); };
             menuItems[1] = [&manager] { manager.searchPassword(); };
@@ -120,7 +136,7 @@ public:
                 std::cin >> input;
                 if (input == 0) {
                     manager.writingToFile();
-                    encryptor.encryptFile(password);
+                    encryptor.encryptFile(path,password);
                     exit();
                 } else if (input > 0 && input < menuItems.size() + 1) {
                     auto f = menuItems[input];

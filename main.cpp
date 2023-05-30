@@ -5,7 +5,7 @@
  * @section intro_sec Main Goal
  * Password manager is used for storing and managing your passwords.\n
  * All files which store information about our passwords are encrypted.\n
- * While executing  our program user are given that functionality:\n\n
+ * While executing  our program user are given that functionality:\n
  * - Search passwords - returns passwords that contain specific parameters.\n
  * - Sort passwords - returns a sorted list of all passwords.
  * It should allow sorting by at least 2 different parameters at the same time, such as by name and category.\n

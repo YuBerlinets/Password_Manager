@@ -15,9 +15,9 @@ void Encryptor::decryptFile(const std::string &file, const std::string &key) {
     std::cout << "File decrypted successfully." << std::endl;
 }
 
-void Encryptor::encryptFile(const std::string &key) {
+void Encryptor::encryptFile(const std::string &file, const std::string &key) {
     std::ifstream inFile("writingTMP.json", std::ios::binary);
-    std::ofstream outFile("passwords.json", std::ios::binary);
+    std::ofstream outFile(file, std::ios::binary);
     std::size_t keyIndex = 0;
     char inputByte;
     while (inFile.get(inputByte)) {
