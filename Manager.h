@@ -77,6 +77,7 @@ public:
      * Generating based on user's input might be generating automatically
      * according to "generatingPassword" method, otherwise user should write password
      * by themself.
+     * @see generatingPassword()
      */
     void saveNewPassword();
     /**

@@ -212,11 +212,12 @@ void Manager::saveNewPassword() {
     resultLoginPass.push_back(login);
     resultLoginPass.push_back(pass);
 
-    //TODO FIX IT
-//    if (data[category].size() == 1) {
-//        auto tmpMap = data[category].extract("");
-//        tmpMap.key() = website;
-//    }
+    if (data[category].size() == 1 && data[category].count("") > 0) {
+        auto tmpMap = std::move(data[category]);
+        data[category][website] = resultLoginPass;
+    } else {
+        data[category][website] = resultLoginPass;
+    }
 
     data[category][website] = resultLoginPass;
     std::cout << std::endl;

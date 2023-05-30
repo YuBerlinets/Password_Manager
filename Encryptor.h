@@ -30,7 +30,9 @@ public:
      * It would take all the data from tmp json file, where we store all our data
      * after all changes during our session in app and encrypt it using similar to
      * "decryptFile" XOR method.
+     * @see decryptFile(const std::string &file, const std::string &key)
      * @param key Our main password.
+     * @param file File that we entered on the start
      */
     void encryptFile(const std::string &file, const std::string &key);
 };

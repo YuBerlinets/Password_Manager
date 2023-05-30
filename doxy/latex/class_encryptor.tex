@@ -5,7 +5,7 @@
 \item 
 void \mbox{\hyperlink{class_encryptor_a66208bf3dd7a473c9a092b8da08a64fa}{decrypt\+File}} (const std\+::string \&file, const std\+::string \&key)
 \begin{DoxyCompactList}\small\item\em Decrypting data in file. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_encryptor_a976dfee4092de8912f02d2b8f5a1b672}{encrypt\+File}} (const std\+::string \&key)
+void \mbox{\hyperlink{class_encryptor_a54a8f3125736c474627faf1484721c5b}{encrypt\+File}} (const std\+::string \&file, const std\+::string \&key)
 \begin{DoxyCompactList}\small\item\em Encrypting data in file. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -28,25 +28,30 @@ Method uses standard XOR cypher, which implement XOR operator on every char from
 {\em key} & Our main password. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_encryptor_a976dfee4092de8912f02d2b8f5a1b672}\label{class_encryptor_a976dfee4092de8912f02d2b8f5a1b672} 
+\Hypertarget{class_encryptor_a54a8f3125736c474627faf1484721c5b}\label{class_encryptor_a54a8f3125736c474627faf1484721c5b} 
 \index{Encryptor@{Encryptor}!encryptFile@{encryptFile}}
 \index{encryptFile@{encryptFile}!Encryptor@{Encryptor}}
 \doxysubsubsection{\texorpdfstring{encryptFile()}{encryptFile()}}
-{\footnotesize\ttfamily void Encryptor\+::encrypt\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Encryptor\+::encrypt\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file,  }\item[{const std\+::string \&}]{key }\end{DoxyParamCaption})}
 
 
 
 Encrypting data in file. 
 
 This method calls when we end executing of our program. ~\newline
-It would take all the data from tmp json file, where we store all our data after all changes during our session in app and encrypt it using similar to \"{}decrypt\+File\"{} XOR method. 
+It would take all the data from tmp json file, where we store all our data after all changes during our session in app and encrypt it using similar to \"{}decrypt\+File\"{} XOR method. \begin{DoxySeeAlso}{See also}
+\doxylink{class_encryptor_a66208bf3dd7a473c9a092b8da08a64fa}{decrypt\+File(const std\+::string \&file, const std\+::string \&key)} 
+\end{DoxySeeAlso}
+
 \begin{DoxyParams}{Parameters}
 {\em key} & Our main password. \\
+\hline
+{\em file} & File that we entered on the start \\
 \hline
 \end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Encryptor.\+h\item 
-Encryptor.\+cpp\end{DoxyCompactItemize}
+C\+:/\+Users/\+ASUS/\+Desktop/c++/\+CPP\+\_\+\+PROJECT/Encryptor.\+h\item 
+C\+:/\+Users/\+ASUS/\+Desktop/c++/\+CPP\+\_\+\+PROJECT/Encryptor.\+cpp\end{DoxyCompactItemize}
