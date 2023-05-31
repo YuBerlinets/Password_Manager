@@ -219,7 +219,6 @@ void Manager::saveNewPassword() {
         data[category][website] = resultLoginPass;
     }
 
-    data[category][website] = resultLoginPass;
     std::cout << std::endl;
     std::cout << "Your password for website: " + website + " was successfully saved" << std::endl;
 }
@@ -337,22 +336,5 @@ void Manager::removeCategory() {
         std::cout << "Category - " + categoryRemove + " hasn't been found" << std::endl;
 
 }
-
-void Manager::testPrintingMap() {
-    for (const auto &category: data) {
-        const std::map<std::string, std::vector<std::string>> &categoryValue = category.second;
-        for (const auto &website: categoryValue) {
-            const std::vector<std::string> &websiteValues = website.second;
-            std::cout << "=-=-=-=-=-=-=" << std::endl;
-            std::cout << "Category: " + category.first << std::endl;
-            std::cout << "Website: " + website.first << std::endl;
-            std::cout << "Login: " + websiteValues[0] << std::endl;
-            std::cout << "Password: " + websiteValues[1] << std::endl;
-            std::cout << "=-=-=-=-=-=-=" << std::endl;
-        }
-    }
-}
-
-
 
 

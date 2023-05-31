@@ -130,7 +130,6 @@ public:
             menuItems[6] = [&manager] { manager.addCategory(); };
             menuItems[7] = [&manager] { manager.removeCategory(); };
             menuItems[8] = [this] { changingMainPassword(); }; //? to keep it
-            menuItems[9] = [&manager] { manager.testPrintingMap(); };
             int input;
             while (isRunning) {
                 std::cin >> input;
@@ -138,7 +137,7 @@ public:
                     manager.writingToFile();
                     encryptor.encryptFile(path,password);
                     exit();
-                } else if (input > 0 && input < menuItems.size() + 1) {
+                } else if (input > 0 && input < menuItems.size()) {
                     auto f = menuItems[input];
                     f();
                     std::cout << std::endl;

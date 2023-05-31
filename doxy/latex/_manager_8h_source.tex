@@ -10,41 +10,39 @@
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ CPP\_PROJECT\_MANAGER\_H}}
 \DoxyCodeLine{00008\ }
 \DoxyCodeLine{00009\ }
-\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_manager}{Manager}}\ \{}
-\DoxyCodeLine{00011\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ filePath;}
-\DoxyCodeLine{00013\ \ \ \ \ \textcolor{comment}{//<category(map)\ -\/>\ website(map)\ -\/>\ login\ and\ pass\ (vector)>}}
-\DoxyCodeLine{00014\ \ \ \ \ \textcolor{comment}{//<category,\ <website,\ <login,\ password>>>}}
-\DoxyCodeLine{00015\ \ \ \ \ std::map<std::string,\ std::map<std::string,\ std::vector<std::string>>>\ data;}
-\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{static}\ std::string\ \mbox{\hyperlink{class_manager_a2b9e18e59b473579d50a68c508549521}{generatingPassword}}();}
-\DoxyCodeLine{00033\ \ \ \ \ std::vector<std::vector<std::string>>\ \mbox{\hyperlink{class_manager_a25fbc31e9da53ca9810a62f733708d18}{savingPasswordsForSorting}}();}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_manager_aef48803bee3c25cd5b82d105b582bad1}{printDataForSorting}}(\textcolor{keyword}{const}\ std::vector<std::vector<std::string>>\ \&vector);}
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{class_encryptor}{Encryptor}}\ encryptor;}
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{class_manager}{Manager}}()\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_manager}{Manager}}\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ filePath;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{comment}{//<category(map)\ -\/>\ website(map)\ -\/>\ login\ and\ pass\ (vector)>}}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{comment}{//<category,\ <website,\ <login,\ password>>>}}
+\DoxyCodeLine{00020\ \ \ \ \ std::map<std::string,\ std::map<std::string,\ std::vector<std::string>>>\ data;}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{static}\ std::string\ \mbox{\hyperlink{class_manager_a2b9e18e59b473579d50a68c508549521}{generatingPassword}}();}
+\DoxyCodeLine{00038\ \ \ \ \ std::vector<std::vector<std::string>>\ \mbox{\hyperlink{class_manager_a25fbc31e9da53ca9810a62f733708d18}{savingPasswordsForSorting}}();}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_manager_aef48803bee3c25cd5b82d105b582bad1}{printDataForSorting}}(\textcolor{keyword}{const}\ std::vector<std::vector<std::string>>\ \&vector);}
 \DoxyCodeLine{00050\ }
-\DoxyCodeLine{00051\ \ \ \ \ \}}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{class_encryptor}{Encryptor}}\ encryptor;}
 \DoxyCodeLine{00052\ }
-\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_manager_afeb5bb26b9c47a4ba9be0d111a18cdd0}{sortPassword}}();}
-\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_manager_a10f7549efba17beb29c17ef73a2dcdef}{searchPassword}}();}
-\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_manager_a9d765be2fd069871f56b1d1dda44aa0a}{saveNewPassword}}();}
-\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_manager_a5943b5dc3f9099307eb5fa4707be0db8}{updatePassword}}();}
-\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_manager_a8a9593ae761bed0cd2d8f0bd78907feb}{deletePassword}}();}
-\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_manager_ad54c0f144811f275ddac33bcc43a2fe2}{addCategory}}();}
-\DoxyCodeLine{00107\ }
-\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_manager_a57e07b640ec0d6f4ce29fc2a3e740337}{removeCategory}}();}
-\DoxyCodeLine{00116\ }
-\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_manager_a2095c5a55177734ec49a593717de2f11}{loadDataFromFile}}();}
-\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_manager_a2deae959463e9e5a98a3b81aebeee720}{writingToFile}}();}
-\DoxyCodeLine{00136\ }
-\DoxyCodeLine{00137\ \ \ \ \ \textcolor{comment}{//test}}
-\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordtype}{void}\ testPrintingMap();}
-\DoxyCodeLine{00139\ \};}
-\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{class_manager}{Manager}}()\ \{}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_manager_afeb5bb26b9c47a4ba9be0d111a18cdd0}{sortPassword}}();}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_manager_a10f7549efba17beb29c17ef73a2dcdef}{searchPassword}}();}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_manager_a9d765be2fd069871f56b1d1dda44aa0a}{saveNewPassword}}();}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_manager_a5943b5dc3f9099307eb5fa4707be0db8}{updatePassword}}();}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_manager_a8a9593ae761bed0cd2d8f0bd78907feb}{deletePassword}}();}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_manager_ad54c0f144811f275ddac33bcc43a2fe2}{addCategory}}();}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_manager_a57e07b640ec0d6f4ce29fc2a3e740337}{removeCategory}}();}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_manager_a2095c5a55177734ec49a593717de2f11}{loadDataFromFile}}();}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_manager_a2deae959463e9e5a98a3b81aebeee720}{writingToFile}}();}
 \DoxyCodeLine{00141\ }
-\DoxyCodeLine{00142\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//CPP\_PROJECT\_MANAGER\_H}}
+\DoxyCodeLine{00142\ \};}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//CPP\_PROJECT\_MANAGER\_H}}
 
 \end{DoxyCode}

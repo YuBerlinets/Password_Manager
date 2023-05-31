@@ -7,6 +7,11 @@
 #define CPP_PROJECT_MANAGER_H
 
 
+/**
+ * @brief Manager provides all necessary functionality on passwords.
+ * such as sorting, searching etc.
+ *
+ */
 class Manager {
 private:
     const std::string filePath;
@@ -134,8 +139,6 @@ public:
      */
     void writingToFile();
 
-    //test
-    void testPrintingMap();
 };
 
 

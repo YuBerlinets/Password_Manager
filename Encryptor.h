@@ -5,6 +5,10 @@
 #include <fstream>
 #include <iostream>
 
+/**
+ * @brief Encryptor class operates encryption and decryption of files
+ *
+ */
 class Encryptor {
 private:
     std::string path;

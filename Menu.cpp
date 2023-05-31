@@ -20,7 +20,6 @@ void Menu::printMenuOptions() {
     std::cout << "6 - Add category" << std::endl;
     std::cout << "7 - Delete category" << std::endl;
     std::cout << "8 - Changing your main password" << std::endl;
-    std::cout << "9 - test loading file" << std::endl;
     std::cout << "0 - Exit the program" << std::endl;
     std::cout << "Enter your choice: ";
 }
