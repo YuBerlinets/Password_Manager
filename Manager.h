@@ -51,9 +51,7 @@ private:
     Encryptor encryptor;
 
 public:
-    Manager() {
-
-    }
+    Manager() = default;
 
     /**
      * \brief Sorting data

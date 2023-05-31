@@ -20,11 +20,9 @@ unsigned int \mbox{\hyperlink{class_menu_a7bb430a2f1fa74b810f161f26808ae94}{main
 \item 
 bool \mbox{\hyperlink{class_menu_a3bdba854a14cc04fc4285d2c58c73971}{validate\+Main\+Password}} (const std\+::string \&password, const std\+::string \&stored\+Hash)
 \begin{DoxyCompactList}\small\item\em Password validation. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_menu_a5d0b206519bec12f5933293ef3c1fff7}{checking\+File\+Existence}} (const std\+::string \&path)
-\begin{DoxyCompactList}\small\item\em Checks if the file entered by user exists. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_menu_ade755f2e7d8aca9d795f054504592eba}{exit}} ()
 \begin{DoxyCompactList}\small\item\em Finishes executing of the program. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_menu_a91499da5f8fdbec77a747ee44d5e6c4c}{save\+Time\+Login}} (const char \&log)
+void \mbox{\hyperlink{class_menu_a18994019995b390e42db8c9d26af0440}{save\+Time\+Login}} ()
 \begin{DoxyCompactList}\small\item\em Saving time of login. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Static Private Member Functions}
 \begin{DoxyCompactItemize}
@@ -32,7 +30,9 @@ void \mbox{\hyperlink{class_menu_a91499da5f8fdbec77a747ee44d5e6c4c}{save\+Time\+
 static void \mbox{\hyperlink{class_menu_aac669b90243d4f05ec63869bfc856867}{print\+Console\+Intro}} ()
 \item 
 static void \mbox{\hyperlink{class_menu_ad8b0f70e82c294ebf7ec3f0c2b8e3c61}{print\+Menu\+Options}} ()
-\begin{DoxyCompactList}\small\item\em Prints all available options to the user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Prints all available options to the user. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{class_menu_a5d0b206519bec12f5933293ef3c1fff7}{checking\+File\+Existence}} (const std\+::string \&path)
+\begin{DoxyCompactList}\small\item\em Checks if the file entered by user exists. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -54,7 +54,7 @@ Asks for the path to the existing file or create a new one. \Hypertarget{class_m
 \index{Menu@{Menu}!checkingFileExistence@{checkingFileExistence}}
 \index{checkingFileExistence@{checkingFileExistence}!Menu@{Menu}}
 \doxysubsubsection{\texorpdfstring{checkingFileExistence()}{checkingFileExistence()}}
-{\footnotesize\ttfamily bool Menu\+::checking\+File\+Existence (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily bool Menu\+::checking\+File\+Existence (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
 
 
 
@@ -62,11 +62,11 @@ Checks if the file entered by user exists.
 
 
 \begin{DoxyParams}{Parameters}
-{\em path} & -\/ Path to the file \\
+{\em path} & -\/ Path to the file. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-True, if file exists and false if it doesn\textquotesingle{}t 
+True, if file exists and false if it doesn\textquotesingle{}t. 
 \end{DoxyReturn}
 \Hypertarget{class_menu_ade755f2e7d8aca9d795f054504592eba}\label{class_menu_ade755f2e7d8aca9d795f054504592eba} 
 \index{Menu@{Menu}!exit@{exit}}
@@ -78,7 +78,7 @@ True, if file exists and false if it doesn\textquotesingle{}t
 
 Finishes executing of the program. 
 
-Sets is\+Running field to false \Hypertarget{class_menu_aaca4b67618b55645e98864eb6defd9e1}\label{class_menu_aaca4b67618b55645e98864eb6defd9e1} 
+Sets is\+Running field to false. \Hypertarget{class_menu_aaca4b67618b55645e98864eb6defd9e1}\label{class_menu_aaca4b67618b55645e98864eb6defd9e1} 
 \index{Menu@{Menu}!login@{login}}
 \index{login@{login}!Menu@{Menu}}
 \doxysubsubsection{\texorpdfstring{login()}{login()}}
@@ -88,20 +88,20 @@ Sets is\+Running field to false \Hypertarget{class_menu_aaca4b67618b55645e98864e
 
 Login to an app. 
 
-Asks user to input password and checks previously saved hash of this password if password is correct then program continue its executing, sets \"{}is\+Running\"{} to true and \"{}pass\+Correct\"{} to true~\newline
-If user fails 3 attempts to enter the password, program will immediately close \Hypertarget{class_menu_a7bb430a2f1fa74b810f161f26808ae94}\label{class_menu_a7bb430a2f1fa74b810f161f26808ae94} 
+Asks user to input password and checks previously saved hash of this password if password is correct then program continue its executing, sets \"{}is\+Running\"{} to true and \"{}pass\+Correct\"{} to true.~\newline
+If user fails 3 attempts to enter the password, program will immediately close. \Hypertarget{class_menu_a7bb430a2f1fa74b810f161f26808ae94}\label{class_menu_a7bb430a2f1fa74b810f161f26808ae94} 
 \index{Menu@{Menu}!mainPasswordHash@{mainPasswordHash}}
 \index{mainPasswordHash@{mainPasswordHash}!Menu@{Menu}}
 \doxysubsubsection{\texorpdfstring{mainPasswordHash()}{mainPasswordHash()}}
 {\footnotesize\ttfamily unsigned int Menu\+::main\+Password\+Hash (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
-Generates hash from the given password 
+Generates hash from the given password. 
 \begin{DoxyParams}{Parameters}
-{\em password} & -\/ given password \\
+{\em password} & -\/ given password. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-hash as unsigned int 
+hash as unsigned int. 
 \end{DoxyReturn}
 \Hypertarget{class_menu_aac669b90243d4f05ec63869bfc856867}\label{class_menu_aac669b90243d4f05ec63869bfc856867} 
 \index{Menu@{Menu}!printConsoleIntro@{printConsoleIntro}}
@@ -109,7 +109,7 @@ hash as unsigned int
 \doxysubsubsection{\texorpdfstring{printConsoleIntro()}{printConsoleIntro()}}
 {\footnotesize\ttfamily void Menu\+::print\+Console\+Intro (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
 
-Prints text \"{}\+Password manager\"{} to the console \Hypertarget{class_menu_ad8b0f70e82c294ebf7ec3f0c2b8e3c61}\label{class_menu_ad8b0f70e82c294ebf7ec3f0c2b8e3c61} 
+Prints text \"{}\+Password manager\"{} to the console. \Hypertarget{class_menu_ad8b0f70e82c294ebf7ec3f0c2b8e3c61}\label{class_menu_ad8b0f70e82c294ebf7ec3f0c2b8e3c61} 
 \index{Menu@{Menu}!printMenuOptions@{printMenuOptions}}
 \index{printMenuOptions@{printMenuOptions}!Menu@{Menu}}
 \doxysubsubsection{\texorpdfstring{printMenuOptions()}{printMenuOptions()}}
@@ -126,22 +126,17 @@ Prints all available options to the user.
 5 -\/ Delete a password~\newline
 6 -\/ Add category~\newline
 7 -\/ Delete category~\newline
-0 -\/ Exit the program \Hypertarget{class_menu_a91499da5f8fdbec77a747ee44d5e6c4c}\label{class_menu_a91499da5f8fdbec77a747ee44d5e6c4c} 
+0 -\/ Exit the program \Hypertarget{class_menu_a18994019995b390e42db8c9d26af0440}\label{class_menu_a18994019995b390e42db8c9d26af0440} 
 \index{Menu@{Menu}!saveTimeLogin@{saveTimeLogin}}
 \index{saveTimeLogin@{saveTimeLogin}!Menu@{Menu}}
 \doxysubsubsection{\texorpdfstring{saveTimeLogin()}{saveTimeLogin()}}
-{\footnotesize\ttfamily void Menu\+::save\+Time\+Login (\begin{DoxyParamCaption}\item[{const char \&}]{log }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily void Menu\+::save\+Time\+Login (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
 Saving time of login. 
 
-Saves login time to the file, using separation to make it more secure 
-\begin{DoxyParams}{Parameters}
-{\em log} & -\/ Takes parameter of successful entering the program or no \\
-\hline
-\end{DoxyParams}
-\Hypertarget{class_menu_a3bdba854a14cc04fc4285d2c58c73971}\label{class_menu_a3bdba854a14cc04fc4285d2c58c73971} 
+Saves login time to the file, using separation to make it more secure. \Hypertarget{class_menu_a3bdba854a14cc04fc4285d2c58c73971}\label{class_menu_a3bdba854a14cc04fc4285d2c58c73971} 
 \index{Menu@{Menu}!validateMainPassword@{validateMainPassword}}
 \index{validateMainPassword@{validateMainPassword}!Menu@{Menu}}
 \doxysubsubsection{\texorpdfstring{validateMainPassword()}{validateMainPassword()}}
@@ -151,15 +146,15 @@ Saves login time to the file, using separation to make it more secure
 
 Password validation. 
 
-Validate if the password entered by user is similar to already stored in system 
+Validate if the password entered by user is similar to already stored in system. 
 \begin{DoxyParams}{Parameters}
-{\em password} & -\/ Password entered by user \\
+{\em password} & -\/ Password entered by user. \\
 \hline
-{\em stored\+Hash} & -\/ Stored hash of main password \\
+{\em stored\+Hash} & -\/ Stored hash of main password. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-True or false, depending on correctness of entered password 
+True or false, depending on correctness of entered password. 
 \end{DoxyReturn}
 
 

@@ -16,7 +16,7 @@
 \DoxyCodeLine{00013\ }
 \DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_menu}{Menu}}\ \{}
 \DoxyCodeLine{00019\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{bool}\ isRunning;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{bool}\ isRunning\ =\ \textcolor{keyword}{false};}
 \DoxyCodeLine{00021\ \ \ \ \ std::map<int,\ std::function<void()>>\ menuItems;}
 \DoxyCodeLine{00022\ \ \ \ \ std::string\ password;}
 \DoxyCodeLine{00023\ \ \ \ \ std::string\ path;}
@@ -39,61 +39,60 @@
 \DoxyCodeLine{00074\ }
 \DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_menu_a3bdba854a14cc04fc4285d2c58c73971}{validateMainPassword}}(\textcolor{keyword}{const}\ std::string\ \&password,\ \textcolor{keyword}{const}\ std::string\ \&storedHash);}
 \DoxyCodeLine{00084\ }
-\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_menu_a5d0b206519bec12f5933293ef3c1fff7}{checkingFileExistence}}(\textcolor{keyword}{const}\ std::string\ \&path);}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_menu_a5d0b206519bec12f5933293ef3c1fff7}{checkingFileExistence}}(\textcolor{keyword}{const}\ std::string\ \&path);}
 \DoxyCodeLine{00092\ }
 \DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_menu_ade755f2e7d8aca9d795f054504592eba}{exit}}();}
 \DoxyCodeLine{00099\ }
-\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_menu_a91499da5f8fdbec77a747ee44d5e6c4c}{saveTimeLogin}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ \&log);}
-\DoxyCodeLine{00107\ }
-\DoxyCodeLine{00108\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00109\ \ \ \ \ \mbox{\hyperlink{class_menu}{Menu}}()\ \{}
-\DoxyCodeLine{00110\ }
-\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_menu_aac669b90243d4f05ec63869bfc856867}{printConsoleIntro}}();}
-\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_menu_aaca4b67618b55645e98864eb6defd9e1}{login}}();}
-\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_menu_a4633ab73f3fce17dcbff5d7257952c5a}{actionsType}}();}
-\DoxyCodeLine{00114\ }
-\DoxyCodeLine{00115\ }
-\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_manager}{Manager}}\ manager;}
-\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (passCorrect)\ \{}
-\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_encryptor}{Encryptor}}\ encryptor;}
-\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!newFile)\ \{}
-\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ encryptor.\mbox{\hyperlink{class_encryptor_a66208bf3dd7a473c9a092b8da08a64fa}{decryptFile}}(path,\ password);}
-\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ manager.\mbox{\hyperlink{class_manager_a2095c5a55177734ec49a593717de2f11}{loadDataFromFile}}();}
-\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_menu_ad8b0f70e82c294ebf7ec3f0c2b8e3c61}{printMenuOptions}}();}
-\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ menuItems[0]\ =\ [\textcolor{keyword}{this}]\ \{\ \mbox{\hyperlink{class_menu_ade755f2e7d8aca9d795f054504592eba}{exit}}();\ \};}
-\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ menuItems[1]\ =\ [\&manager]\ \{\ manager.\mbox{\hyperlink{class_manager_a10f7549efba17beb29c17ef73a2dcdef}{searchPassword}}();\ \};}
-\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ menuItems[2]\ =\ [\&manager]\ \{\ manager.\mbox{\hyperlink{class_manager_afeb5bb26b9c47a4ba9be0d111a18cdd0}{sortPassword}}();\ \};}
-\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ menuItems[3]\ =\ [\&manager]\ \{\ manager.\mbox{\hyperlink{class_manager_a9d765be2fd069871f56b1d1dda44aa0a}{saveNewPassword}}();\ \};}
-\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ menuItems[4]\ =\ [\&manager]\ \{\ manager.\mbox{\hyperlink{class_manager_a5943b5dc3f9099307eb5fa4707be0db8}{updatePassword}}();\ \};}
-\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ menuItems[5]\ =\ [\&manager]\ \{\ manager.\mbox{\hyperlink{class_manager_a8a9593ae761bed0cd2d8f0bd78907feb}{deletePassword}}();\ \};}
-\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ menuItems[6]\ =\ [\&manager]\ \{\ manager.\mbox{\hyperlink{class_manager_ad54c0f144811f275ddac33bcc43a2fe2}{addCategory}}();\ \};}
-\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ menuItems[7]\ =\ [\&manager]\ \{\ manager.\mbox{\hyperlink{class_manager_a57e07b640ec0d6f4ce29fc2a3e740337}{removeCategory}}();\ \};}
-\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ menuItems[8]\ =\ [\textcolor{keyword}{this}]\ \{\ changingMainPassword();\ \};\ \textcolor{comment}{//?\ to\ keep\ it}}
-\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ input;}
-\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (isRunning)\ \{}
-\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>\ input;}
-\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (input\ ==\ 0)\ \{}
-\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ manager.\mbox{\hyperlink{class_manager_a2deae959463e9e5a98a3b81aebeee720}{writingToFile}}();}
-\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ encryptor.\mbox{\hyperlink{class_encryptor_a54a8f3125736c474627faf1484721c5b}{encryptFile}}(path,password);}
-\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_menu_ade755f2e7d8aca9d795f054504592eba}{exit}}();}
-\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input\ >\ 0\ \&\&\ input\ <\ menuItems.size())\ \{}
-\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ f\ =\ menuItems[input];}
-\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ f();}
-\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ std::endl;}
-\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_menu_ad8b0f70e82c294ebf7ec3f0c2b8e3c61}{printMenuOptions}}();}
-\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Incorrect\ input"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_menu_ad8b0f70e82c294ebf7ec3f0c2b8e3c61}{printMenuOptions}}();}
-\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00150\ }
-\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00152\ \ \ \ \ \}}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_menu_a18994019995b390e42db8c9d26af0440}{saveTimeLogin}}();}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00108\ \ \ \ \ \mbox{\hyperlink{class_menu}{Menu}}()\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_menu_aac669b90243d4f05ec63869bfc856867}{printConsoleIntro}}();}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_menu_aaca4b67618b55645e98864eb6defd9e1}{login}}();}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_menu_a4633ab73f3fce17dcbff5d7257952c5a}{actionsType}}();}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_manager}{Manager}}\ manager;}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (passCorrect)\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_encryptor}{Encryptor}}\ encryptor;}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!newFile)\ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ encryptor.\mbox{\hyperlink{class_encryptor_a66208bf3dd7a473c9a092b8da08a64fa}{decryptFile}}(path,\ password);}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ manager.\mbox{\hyperlink{class_manager_a2095c5a55177734ec49a593717de2f11}{loadDataFromFile}}();}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_menu_ad8b0f70e82c294ebf7ec3f0c2b8e3c61}{printMenuOptions}}();}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ menuItems[0]\ =\ [\textcolor{keyword}{this}]\ \{\ \mbox{\hyperlink{class_menu_ade755f2e7d8aca9d795f054504592eba}{exit}}();\ \};}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ menuItems[1]\ =\ [\&manager]\ \{\ manager.\mbox{\hyperlink{class_manager_a10f7549efba17beb29c17ef73a2dcdef}{searchPassword}}();\ \};}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ menuItems[2]\ =\ [\&manager]\ \{\ manager.\mbox{\hyperlink{class_manager_afeb5bb26b9c47a4ba9be0d111a18cdd0}{sortPassword}}();\ \};}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ menuItems[3]\ =\ [\&manager]\ \{\ manager.\mbox{\hyperlink{class_manager_a9d765be2fd069871f56b1d1dda44aa0a}{saveNewPassword}}();\ \};}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ menuItems[4]\ =\ [\&manager]\ \{\ manager.\mbox{\hyperlink{class_manager_a5943b5dc3f9099307eb5fa4707be0db8}{updatePassword}}();\ \};}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ menuItems[5]\ =\ [\&manager]\ \{\ manager.\mbox{\hyperlink{class_manager_a8a9593ae761bed0cd2d8f0bd78907feb}{deletePassword}}();\ \};}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ menuItems[6]\ =\ [\&manager]\ \{\ manager.\mbox{\hyperlink{class_manager_ad54c0f144811f275ddac33bcc43a2fe2}{addCategory}}();\ \};}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ menuItems[7]\ =\ [\&manager]\ \{\ manager.\mbox{\hyperlink{class_manager_a57e07b640ec0d6f4ce29fc2a3e740337}{removeCategory}}();\ \};}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ menuItems[8]\ =\ [\textcolor{keyword}{this}]\ \{\ changingMainPassword();\ \};\ \textcolor{comment}{//?\ to\ keep\ it}}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ input;}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (isRunning)\ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>\ input;}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (input\ ==\ 0)\ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ manager.\mbox{\hyperlink{class_manager_a2deae959463e9e5a98a3b81aebeee720}{writingToFile}}();}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ encryptor.\mbox{\hyperlink{class_encryptor_a54a8f3125736c474627faf1484721c5b}{encryptFile}}(path,password);}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_menu_ade755f2e7d8aca9d795f054504592eba}{exit}}();}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input\ >\ 0\ \&\&\ input\ <\ menuItems.size())\ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ f\ =\ menuItems[input];}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ f();}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_menu_ad8b0f70e82c294ebf7ec3f0c2b8e3c61}{printMenuOptions}}();}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Incorrect\ input"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_menu_ad8b0f70e82c294ebf7ec3f0c2b8e3c61}{printMenuOptions}}();}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00150\ \ \ \ \ \}}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \};}
 \DoxyCodeLine{00153\ }
-\DoxyCodeLine{00154\ \};}
-\DoxyCodeLine{00155\ }
-\DoxyCodeLine{00156\ }
-\DoxyCodeLine{00157\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//CPP\_PROJECT\_MENU\_H}}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//CPP\_PROJECT\_MENU\_H}}
 
 \end{DoxyCode}

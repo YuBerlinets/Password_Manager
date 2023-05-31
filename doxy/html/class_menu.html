@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Password Manager<span id="projectnumber">&#160;beta_0.4</span>
+   <div id="projectname">Password Manager<span id="projectnumber">&#160;beta_0.5</span>
    </div>
    <div id="projectbrief">PJC Project s28359</div>
   </td>
@@ -96,15 +96,12 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a3bdba854a14cc04fc4285d2c58c73971"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#a3bdba854a14cc04fc4285d2c58c73971">validateMainPassword</a> (const std::string &amp;password, const std::string &amp;storedHash)</td></tr>
 <tr class="memdesc:a3bdba854a14cc04fc4285d2c58c73971"><td class="mdescLeft">&#160;</td><td class="mdescRight">Password validation.  <br /></td></tr>
 <tr class="separator:a3bdba854a14cc04fc4285d2c58c73971"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d0b206519bec12f5933293ef3c1fff7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#a5d0b206519bec12f5933293ef3c1fff7">checkingFileExistence</a> (const std::string &amp;path)</td></tr>
-<tr class="memdesc:a5d0b206519bec12f5933293ef3c1fff7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the file entered by user exists.  <br /></td></tr>
-<tr class="separator:a5d0b206519bec12f5933293ef3c1fff7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade755f2e7d8aca9d795f054504592eba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#ade755f2e7d8aca9d795f054504592eba">exit</a> ()</td></tr>
 <tr class="memdesc:ade755f2e7d8aca9d795f054504592eba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finishes executing of the program.  <br /></td></tr>
 <tr class="separator:ade755f2e7d8aca9d795f054504592eba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91499da5f8fdbec77a747ee44d5e6c4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#a91499da5f8fdbec77a747ee44d5e6c4c">saveTimeLogin</a> (const char &amp;log)</td></tr>
-<tr class="memdesc:a91499da5f8fdbec77a747ee44d5e6c4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saving time of login.  <br /></td></tr>
-<tr class="separator:a91499da5f8fdbec77a747ee44d5e6c4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18994019995b390e42db8c9d26af0440"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#a18994019995b390e42db8c9d26af0440">saveTimeLogin</a> ()</td></tr>
+<tr class="memdesc:a18994019995b390e42db8c9d26af0440"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saving time of login.  <br /></td></tr>
+<tr class="separator:a18994019995b390e42db8c9d26af0440"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
 Static Private Member Functions</h2></td></tr>
@@ -113,6 +110,9 @@ Static Private Member Functions</h2></td></tr>
 <tr class="memitem:ad8b0f70e82c294ebf7ec3f0c2b8e3c61"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#ad8b0f70e82c294ebf7ec3f0c2b8e3c61">printMenuOptions</a> ()</td></tr>
 <tr class="memdesc:ad8b0f70e82c294ebf7ec3f0c2b8e3c61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints all available options to the user.  <br /></td></tr>
 <tr class="separator:ad8b0f70e82c294ebf7ec3f0c2b8e3c61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d0b206519bec12f5933293ef3c1fff7"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#a5d0b206519bec12f5933293ef3c1fff7">checkingFileExistence</a> (const std::string &amp;path)</td></tr>
+<tr class="memdesc:a5d0b206519bec12f5933293ef3c1fff7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the file entered by user exists.  <br /></td></tr>
+<tr class="separator:a5d0b206519bec12f5933293ef3c1fff7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_menu.html" title="Menu class which takes a input from user in order to give access to functionality.">Menu</a> class which takes a input from user in order to give access to functionality. </p>
@@ -165,7 +165,7 @@ Asks for the path to the existing file or create a new one. </p>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -173,11 +173,11 @@ Asks for the path to the existing file or create a new one. </p>
 <p>Checks if the file entered by user exists. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">path</td><td>- Path to the file </td></tr>
+    <tr><td class="paramname">path</td><td>- Path to the file. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True, if file exists and false if it doesn't </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True, if file exists and false if it doesn't. </dd></dl>
 
 </div>
 </div>
@@ -205,7 +205,7 @@ Asks for the path to the existing file or create a new one. </p>
 </div><div class="memdoc">
 
 <p>Finishes executing of the program. </p>
-<p>Sets isRunning field to false </p>
+<p>Sets isRunning field to false. </p>
 
 </div>
 </div>
@@ -233,8 +233,8 @@ Asks for the path to the existing file or create a new one. </p>
 </div><div class="memdoc">
 
 <p>Login to an app. </p>
-<p>Asks user to input password and checks previously saved hash of this password if password is correct then program continue its executing, sets "isRunning" to true and "passCorrect" to true<br  />
-If user fails 3 attempts to enter the password, program will immediately close </p>
+<p>Asks user to input password and checks previously saved hash of this password if password is correct then program continue its executing, sets "isRunning" to true and "passCorrect" to true.<br  />
+If user fails 3 attempts to enter the password, program will immediately close. </p>
 
 </div>
 </div>
@@ -261,13 +261,13 @@ If user fails 3 attempts to enter the password, program will immediately close <
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Generates hash from the given password </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Generates hash from the given password. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">password</td><td>- given password </td></tr>
+    <tr><td class="paramname">password</td><td>- given password. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>hash as unsigned int </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>hash as unsigned int. </dd></dl>
 
 </div>
 </div>
@@ -293,7 +293,7 @@ If user fails 3 attempts to enter the password, program will immediately close <
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Prints text "Password manager" to the console </p>
+<p>Prints text "Password manager" to the console. </p>
 
 </div>
 </div>
@@ -332,8 +332,8 @@ If user fails 3 attempts to enter the password, program will immediately close <
 
 </div>
 </div>
-<a id="a91499da5f8fdbec77a747ee44d5e6c4c" name="a91499da5f8fdbec77a747ee44d5e6c4c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91499da5f8fdbec77a747ee44d5e6c4c">&#9670;&#160;</a></span>saveTimeLogin()</h2>
+<a id="a18994019995b390e42db8c9d26af0440" name="a18994019995b390e42db8c9d26af0440"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18994019995b390e42db8c9d26af0440">&#9670;&#160;</a></span>saveTimeLogin()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -344,8 +344,7 @@ If user fails 3 attempts to enter the password, program will immediately close <
         <tr>
           <td class="memname">void Menu::saveTimeLogin </td>
           <td>(</td>
-          <td class="paramtype">const char &amp;&#160;</td>
-          <td class="paramname"><em>log</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -357,12 +356,7 @@ If user fails 3 attempts to enter the password, program will immediately close <
 </div><div class="memdoc">
 
 <p>Saving time of login. </p>
-<p>Saves login time to the file, using separation to make it more secure </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">log</td><td>- Takes parameter of successful entering the program or no </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Saves login time to the file, using separation to make it more secure. </p>
 
 </div>
 </div>
@@ -401,14 +395,14 @@ If user fails 3 attempts to enter the password, program will immediately close <
 </div><div class="memdoc">
 
 <p>Password validation. </p>
-<p>Validate if the password entered by user is similar to already stored in system </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Validate if the password entered by user is similar to already stored in system. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">password</td><td>- Password entered by user </td></tr>
-    <tr><td class="paramname">storedHash</td><td>- Stored hash of main password </td></tr>
+    <tr><td class="paramname">password</td><td>- Password entered by user. </td></tr>
+    <tr><td class="paramname">storedHash</td><td>- Stored hash of main password. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True or false, depending on correctness of entered password </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True or false, depending on correctness of entered password. </dd></dl>
 
 </div>
 </div>

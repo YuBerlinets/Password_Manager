@@ -17,7 +17,7 @@
  */
 class Menu {
 private:
-    bool isRunning;
+    bool isRunning = false;
     std::map<int, std::function<void()>> menuItems;
     std::string password;
     std::string path;
@@ -25,7 +25,7 @@ private:
     bool newFile = false;
 
     /**
-     * Prints text "Password manager" to the console
+     * Prints text "Password manager" to the console.
      */
     static void printConsoleIntro();
 
@@ -44,8 +44,8 @@ private:
      *
      * Asks user to input password and checks previously saved hash of this password
      * if password is correct then program continue its executing,
-     * sets "isRunning" to true and "passCorrect" to true\n
-     * If user fails 3 attempts to enter the password, program will immediately close
+     * sets "isRunning" to true and "passCorrect" to true.\n
+     * If user fails 3 attempts to enter the password, program will immediately close.
      */
     void login();
 
@@ -66,48 +66,46 @@ private:
     void changingMainPassword();
 
     /**
-     * Generates hash from the given password
-     * @param password - given password
-     * @return hash as unsigned int
+     * Generates hash from the given password.
+     * @param password - given password.
+     * @return hash as unsigned int.
      */
     unsigned int mainPasswordHash(const std::string &password);
 
     /**
      * \brief Password validation
      *
-     * Validate if the password entered by user is similar to already stored in system
-     * @param password - Password entered by user
-     * @param storedHash - Stored hash of main password
-     * @return True or false, depending on correctness of entered password
+     * Validate if the password entered by user is similar to already stored in system.
+     * @param password - Password entered by user.
+     * @param storedHash - Stored hash of main password.
+     * @return True or false, depending on correctness of entered password.
      */
     bool validateMainPassword(const std::string &password, const std::string &storedHash);
 
     /**
-     * \brief Checks if the file entered by user exists
+     * \brief Checks if the file entered by user exists.
      *
-     * @param path - Path to the file
-     * @return True, if file exists and false if it doesn't
+     * @param path - Path to the file.
+     * @return True, if file exists and false if it doesn't.
      */
-    bool checkingFileExistence(const std::string &path);
+    static bool checkingFileExistence(const std::string &path);
 
     /**
-     * \brief Finishes executing of the program
+     * \brief Finishes executing of the program.
      *
-     * Sets isRunning field to false
+     * Sets isRunning field to false.
      */
     void exit();
 
     /**
-     * \brief Saving time of login
+     * \brief Saving time of login.
      *
-     * Saves login time to the file, using separation to make it more secure
-     * @param log - Takes parameter of successful entering the program or no
+     * Saves login time to the file, using separation to make it more secure.
      */
-    void saveTimeLogin(const char &log);
+    void saveTimeLogin();
 
 public:
     Menu() {
-
         printConsoleIntro();
         login();
         actionsType();

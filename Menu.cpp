@@ -60,7 +60,7 @@ void Menu::login() {
 
     while (attempts != 0) {
         std::cout << "Enter the password: ";
-        while ((ch = _getch()) != '\r') {
+        while ((ch = getch()) != '\r') {
             if (ch == '\b') {
                 if (!pass.empty()) {
                     pass.pop_back();
@@ -76,11 +76,11 @@ void Menu::login() {
             isRunning = true;
             password = pass;
             passCorrect = true;
-            saveTimeLogin('c');
+            saveTimeLogin();
             std::cout << std::endl;
             break;
         } else {
-            saveTimeLogin('i');
+            saveTimeLogin();
             pass = "";
             std::cout << "\nIncorrect password" << std::endl;
             attempts--;
@@ -93,17 +93,13 @@ void Menu::login() {
     }
 }
 
-void Menu::saveTimeLogin(const char &log) {
+void Menu::saveTimeLogin() {
     std::fstream file("timestamp.txt");
     std::time_t currentTime = std::time(nullptr);
     std::tm *localTime = std::localtime(&currentTime);
     srand((unsigned) time(NULL));
     int random;
-    if (log == 'c')
-        random = 1000 + (std::rand() % (2000 - 1000 + 1));
-    else
-        random = 3000 + (std::rand() % (4000 - 3000 + 1));
-
+    random = 1000 + (std::rand() % (4000 - 1000 + 1));
     std::string space = std::to_string(random) + "\n\n\n\n\n\n\n\n\n\n";
     int year = localTime->tm_year;
     int month = localTime->tm_mon;
